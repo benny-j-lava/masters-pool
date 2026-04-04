@@ -243,7 +243,7 @@
     <div class="draw-info-box">
       <strong>How it works:</strong> At 8:00 PM ET on Tuesday, each of the 10 teams will be randomly assigned one of the top 20 Masters contenders. Watch live as the draw happens — everyone sees their golfer at the same time.
       <br><br>
-      <strong>Draft order:</strong> The player with the lowest Masters score earns their team the #1 draft pick. Missed cut players rank below all players who made the cut.
+      <strong>Draft order:</strong> Lowest total score = #1 pick. Ties broken by final round score, then working backwards round by round. Missed cut players rank below all who made the cut.
     </div>
   </section>
 
@@ -263,7 +263,7 @@
       <li>Lowest total score = #1 draft pick</li>
       <li>Players who make the cut rank above all missed-cut players</li>
       <li>Missed-cut players are ranked by their 36-hole score</li>
-      <li>Ties in total score share the draft position</li>
+      <li>Tiebreaker: final round score · then R3 · then R2 · then R1</li>
     </ul></div>
   </section>
 
@@ -283,7 +283,7 @@
       <li>Lowest total score = #1 draft pick</li>
       <li>Players who make the cut rank above all missed-cut players</li>
       <li>Missed-cut players are ranked by their 36-hole score</li>
-      <li>Ties in total score share the draft position</li>
+      <li>Tiebreaker: final round score · then R3 · then R2 · then R1</li>
     </ul></div>
   </section>
 </main>
@@ -425,15 +425,27 @@ function renderLeaderboard() {
     score: poolData.scores?.[a.golferId] || null
   })).filter(r => r.team && r.golfer);
 
+  const getRound = (score, r) => {
+    if (!score?.roundScores) return 999;
+    const v = score.roundScores[r];
+    return (v !== undefined && v !== null && v !== '') ? (parseInt(v) || 999) : 999;
+  };
+
   rows.sort((a, b) => {
     const as = a.score, bs = b.score;
     if (!as && !bs) return 0; if (!as) return 1; if (!bs) return -1;
     if (as.withdrawn && !bs.withdrawn) return 1; if (!as.withdrawn && bs.withdrawn) return -1;
     if (as.madeCut && !bs.madeCut) return -1; if (!as.madeCut && bs.madeCut) return 1;
-    return (as.totalScore ?? 999) - (bs.totalScore ?? 999);
+    const totalDiff = (as.totalScore ?? 999) - (bs.totalScore ?? 999);
+    if (totalDiff !== 0) return totalDiff;
+    for (let r = 3; r >= 0; r--) {
+      const diff = getRound(as, r) - getRound(bs, r);
+      if (diff !== 0) return diff;
+    }
+    return 0;
   });
 
-  let cutDividerAdded = false, pos = 1, prevScore = null, sameCount = 0;
+  let cutDividerAdded = false, pos = 1;
   rows.forEach((row, index) => {
     const { team, golfer, score } = row;
     const madeCut = score?.madeCut !== false;
@@ -441,13 +453,9 @@ function renderLeaderboard() {
     if (score && !madeCut && !cutDividerAdded) {
       const dr = document.createElement('tr'); dr.className = 'cut-divider';
       dr.innerHTML = `<td colspan="6"><div class="cut-divider-label">✂ Missed Cut</div></td>`;
-      tbody.appendChild(dr); cutDividerAdded = true; pos = index + 1; sameCount = 0; prevScore = null;
+      tbody.appendChild(dr); cutDividerAdded = true; pos = index + 1;
     }
-    if (score && total !== null) {
-      if (total === prevScore) sameCount++;
-      else { pos = index + 1 - sameCount; sameCount = 0; }
-      prevScore = total;
-    }
+    if (score && total !== null) { pos = index + 1; }
     let scoreDisplay, scoreClass;
     if (!score || total === null) { scoreDisplay = '—'; scoreClass = 'score-na'; }
     else if (total < 0) { scoreDisplay = total; scoreClass = 'score-under'; }

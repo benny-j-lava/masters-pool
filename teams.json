@@ -1,0 +1,12 @@
+[
+  { "id": 1, "manager": "Kyle", "teamName": "Koo and the Gang" },
+  { "id": 2, "manager": "Vijay", "teamName": "Cook's Country Kitchen" },
+  { "id": 3, "manager": "Josh", "teamName": "Herbert/Maye are on my bench" },
+  { "id": 4, "manager": "Caleb", "teamName": "Ladd Before Time" },
+  { "id": 5, "manager": "Blake", "teamName": "Hurst So Good" },
+  { "id": 6, "manager": "Keith", "teamName": "Hall Pass to London" },
+  { "id": 7, "manager": "Ben", "teamName": "Benny and the Jets" },
+  { "id": 8, "manager": "Matt", "teamName": "To Infiniti and Bijan" },
+  { "id": 9, "manager": "Kade", "teamName": "Nabers working in my mayfield" },
+  { "id": 10, "manager": "Taylor", "teamName": "Hungry Like The Wolfe" }
+]

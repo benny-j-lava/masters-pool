@@ -1,0 +1,30 @@
+{
+  "drawTime": "2026-04-08T20:00:00-04:00",
+  "drawCompleted": false,
+  "lastUpdated": null,
+  "tournamentStarted": false,
+  "golfers": [
+    { "id": "scottie-scheffler", "name": "Scottie Scheffler", "country": "USA", "odds": "+550" },
+    { "id": "jon-rahm", "name": "Jon Rahm", "country": "ESP", "odds": "+1000" },
+    { "id": "bryson-dechambeau", "name": "Bryson DeChambeau", "country": "USA", "odds": "+1000" },
+    { "id": "rory-mcilroy", "name": "Rory McIlroy", "country": "NIR", "odds": "+1100" },
+    { "id": "xander-schauffele", "name": "Xander Schauffele", "country": "USA", "odds": "+1500" },
+    { "id": "ludvig-aberg", "name": "Ludvig Åberg", "country": "SWE", "odds": "+1600" },
+    { "id": "matt-fitzpatrick", "name": "Matt Fitzpatrick", "country": "ENG", "odds": "+2000" },
+    { "id": "cameron-young", "name": "Cameron Young", "country": "USA", "odds": "+2000" },
+    { "id": "tommy-fleetwood", "name": "Tommy Fleetwood", "country": "ENG", "odds": "+2200" },
+    { "id": "collin-morikawa", "name": "Collin Morikawa", "country": "USA", "odds": "+2700" },
+    { "id": "brooks-koepka", "name": "Brooks Koepka", "country": "USA", "odds": "+2800" },
+    { "id": "hideki-matsuyama", "name": "Hideki Matsuyama", "country": "JPN", "odds": "+3000" },
+    { "id": "justin-thomas", "name": "Justin Thomas", "country": "USA", "odds": "+3500" },
+    { "id": "jordan-spieth", "name": "Jordan Spieth", "country": "USA", "odds": "+3500" },
+    { "id": "viktor-hovland", "name": "Viktor Hovland", "country": "NOR", "odds": "+3500" },
+    { "id": "patrick-cantlay", "name": "Patrick Cantlay", "country": "USA", "odds": "+4000" },
+    { "id": "shane-lowry", "name": "Shane Lowry", "country": "IRL", "odds": "+4000" },
+    { "id": "patrick-reed", "name": "Patrick Reed", "country": "USA", "odds": "+4400" },
+    { "id": "robert-macintyre", "name": "Robert MacIntyre", "country": "SCO", "odds": "+5000" },
+    { "id": "max-homa", "name": "Max Homa", "country": "USA", "odds": "+5000" }
+  ],
+  "assignments": [],
+  "scores": {}
+}

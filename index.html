@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Huck It, Chuck It, Football · Masters Draft Pool 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --masters-green: #1a3a2a;
+      --masters-green-mid: #2d5a3d;
+      --masters-green-light: #4a8c5c;
+      --masters-gold: #c9a84c;
+      --masters-gold-light: #e8c96a;
+      --cream: #f9f5e8;
+      --red: #e04040;
+      --green-score: #6ec46e;
+      --cut-border: #6b2d2d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--masters-green); font-family: 'Source Sans 3', sans-serif; color: var(--cream); min-height: 100vh; }
+
+    .augusta-scene { width: 100%; line-height: 0; }
+    .augusta-scene svg { display: block; width: 100%; height: auto; }
+
+    header { text-align: center; padding: 1.25rem 1rem 1rem; }
+    .header-flag { display: flex; justify-content: center; align-items: center; gap: .75rem; margin-bottom: .5rem; }
+    .flag-line { height: 1px; width: 44px; }
+    .flag-line.l { background: linear-gradient(to right, transparent, var(--masters-gold)); }
+    .flag-line.r { background: linear-gradient(to left, transparent, var(--masters-gold)); }
+    .flag-diamond { width: 7px; height: 7px; background: var(--masters-gold); transform: rotate(45deg); }
+    .league-name { font-family: 'Source Sans 3', sans-serif; font-size: .72rem; font-weight: 300; letter-spacing: .28em; text-transform: uppercase; color: var(--masters-gold-light); margin-bottom: .3rem; }
+    header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 5vw, 2.6rem); font-weight: 700; color: var(--cream); letter-spacing: .04em; line-height: 1.1; }
+    header h1 span { color: var(--masters-gold); }
+    .header-sub { font-size: .75rem; font-weight: 300; letter-spacing: .22em; text-transform: uppercase; color: rgba(249,245,232,.45); margin-top: .3rem; }
+
+    .status-bar { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: center; align-items: center; padding: .5rem 1rem; background: rgba(0,0,0,.28); border-top: 1px solid rgba(201,168,76,.18); border-bottom: 1px solid rgba(201,168,76,.18); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(249,245,232,.65); }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--masters-gold); display: inline-block; margin-right: 5px; animation: pulse 2s infinite; }
+    .status-dot.off { animation: none; background: #555; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.2} }
+    #refresh-indicator { display: none; color: var(--masters-gold); }
+    #refresh-indicator.active { display: inline; }
+
+    main { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+    #countdown-section { text-align: center; padding: 2.5rem 1rem; }
+    .countdown-label { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--masters-gold); margin-bottom: .2rem; }
+    .countdown-sub { font-size: .75rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(249,245,232,.4); margin-bottom: 1.5rem; }
+    .countdown-grid { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+    .countdown-unit { background: rgba(0,0,0,.3); border: 1px solid rgba(201,168,76,.25); border-radius: 8px; padding: 1.1rem 1.3rem; text-align: center; min-width: 82px; }
+    .countdown-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700; color: var(--cream); line-height: 1; display: block; }
+    .countdown-unit-label { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--masters-gold); margin-top: .35rem; display: block; }
+    .draw-info-box { margin: 1.75rem auto 0; max-width: 460px; background: rgba(201,168,76,.07); border: 1px solid rgba(201,168,76,.22); border-radius: 8px; padding: 1.1rem 1.2rem; font-size: .85rem; color: rgba(249,245,232,.75); line-height: 1.65; }
+    .draw-info-box strong { color: var(--masters-gold); }
+
+    #draw-section { display: none; text-align: center; padding: 1.5rem 0; }
+    .draw-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--masters-gold); margin-bottom: .2rem; }
+    .draw-subtitle { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(249,245,232,.4); margin-bottom: 1.5rem; }
+    .draw-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: .85rem; margin-top: 1rem; text-align: left; }
+    .draw-card { background: rgba(0,0,0,.35); border: 1px solid rgba(201,168,76,.18); border-radius: 10px; padding: 1.1rem; opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease, border-color .3s, background .3s; }
+    .draw-card.revealed { opacity: 1; transform: translateY(0); }
+    .draw-card.flash { border-color: var(--masters-gold); background: rgba(201,168,76,.14); }
+    .draw-card-team { font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--masters-gold); margin-bottom: .2rem; }
+    .draw-card-manager { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--cream); font-weight: 600; }
+    .draw-card-gets { font-size: .65rem; color: rgba(249,245,232,.35); margin: .45rem 0 .2rem; text-transform: uppercase; letter-spacing: .1em; }
+    .draw-card-player { font-family: 'Playfair Display', serif; font-size: .95rem; color: var(--masters-gold-light); }
+    .draw-card-odds { font-size: .7rem; color: rgba(249,245,232,.38); margin-top: .18rem; }
+
+    #assignments-section { display: none; }
+    .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .85rem; padding-bottom: .5rem; border-bottom: 1px solid rgba(201,168,76,.28); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--masters-gold); }
+    .section-note { font-size: .7rem; color: rgba(249,245,232,.35); }
+    .pretournament-player { display: flex; justify-content: space-between; align-items: center; padding: .8rem .95rem; background: rgba(0,0,0,.2); border: 1px solid rgba(201,168,76,.1); border-radius: 6px; margin-bottom: .45rem; }
+    .pt-left { display: flex; flex-direction: column; }
+    .pt-team { font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(249,245,232,.38); }
+    .pt-manager { font-family: 'Playfair Display', serif; font-size: .98rem; color: var(--cream); }
+    .pt-right { display: flex; flex-direction: column; align-items: flex-end; }
+    .pt-player { font-size: .9rem; color: var(--masters-gold-light); }
+    .pt-odds { font-size: .7rem; color: rgba(249,245,232,.35); }
+
+    #leaderboard-section { display: none; }
+    .leaderboard-table { width: 100%; border-collapse: collapse; }
+    .leaderboard-table thead tr { background: rgba(0,0,0,.28); }
+    .leaderboard-table th { font-size: .64rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--masters-gold); padding: .55rem .65rem; text-align: left; border-bottom: 1px solid rgba(201,168,76,.16); }
+    .leaderboard-table th.center { text-align: center; }
+    .leaderboard-table tbody tr { border-bottom: 1px solid rgba(255,255,255,.05); transition: background .15s; }
+    .leaderboard-table tbody tr:hover { background: rgba(255,255,255,.04); }
+    .leaderboard-table tbody tr.missed-cut { background: rgba(60,20,20,.3); }
+    .leaderboard-table td { padding: .7rem .65rem; vertical-align: middle; }
+    td.pos { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--masters-gold); width: 38px; text-align: center; }
+    td.pos.top-three { color: var(--masters-gold-light); }
+    .team-name { font-size: .64rem; font-weight: 300; letter-spacing: .1em; text-transform: uppercase; color: rgba(249,245,232,.38); margin-bottom: .15rem; }
+    .manager-name { font-family: 'Playfair Display', serif; font-size: .97rem; font-weight: 600; color: var(--cream); }
+    .player-name { font-size: .9rem; color: var(--cream); }
+    .player-country { font-size: .68rem; color: rgba(249,245,232,.38); margin-top: 1px; }
+    td.score { text-align: center; font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; }
+    .score-under { color: var(--green-score); }
+    .score-even { color: var(--cream); }
+    .score-over { color: var(--red); }
+    .score-na { color: rgba(249,245,232,.28); font-size: 1rem; }
+    td.thru { text-align: center; font-size: .78rem; color: rgba(249,245,232,.48); }
+    td.status-cell { text-align: center; }
+    .status-badge { display: inline-block; font-size: .6rem; font-weight: 600; letter-spacing: .08em; padding: .15rem .42rem; border-radius: 3px; text-transform: uppercase; }
+    .status-badge.active { background: rgba(74,140,92,.28); color: #6ec46e; border: 1px solid rgba(74,140,92,.35); }
+    .status-badge.cut { background: rgba(180,60,60,.2); color: #e07070; border: 1px solid rgba(180,60,60,.28); }
+    .status-badge.wd { background: rgba(100,100,100,.2); color: #999; border: 1px solid rgba(100,100,100,.28); }
+    .status-badge.fin { background: rgba(201,168,76,.14); color: var(--masters-gold); border: 1px solid rgba(201,168,76,.28); }
+    .cut-divider td { padding: .35rem .65rem; background: rgba(60,20,20,.5); border-top: 2px solid var(--cut-border); border-bottom: 2px solid var(--cut-border); }
+    .cut-divider-label { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: #e07070; font-weight: 600; }
+
+    .rules-box { background: rgba(0,0,0,.22); border: 1px solid rgba(201,168,76,.12); border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1rem; font-size: .8rem; color: rgba(249,245,232,.55); line-height: 1.7; }
+    .rules-box h3 { font-family: 'Playfair Display', serif; font-size: .95rem; color: var(--masters-gold); margin-bottom: .5rem; }
+    .rules-box ul { list-style: none; padding: 0; }
+    .rules-box ul li::before { content: '◆  '; color: var(--masters-gold); font-size: .45rem; vertical-align: middle; }
+
+    footer { text-align: center; padding: 1.5rem 1rem; font-size: .65rem; color: rgba(249,245,232,.2); letter-spacing: .1em; text-transform: uppercase; }
+
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+    .fade-in { animation: fadeInUp .45s ease forwards; }
+    @media (max-width: 600px) {
+      .leaderboard-table th.hide-mobile, .leaderboard-table td.hide-mobile { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="augusta-scene">
+  <svg viewBox="0 0 1200 180" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <!-- background sky/green fill full width -->
+    <rect x="0" y="0" width="1200" height="180" fill="#1a3a2a"/>
+    <!-- distant pines — spread across full width -->
+    <polygon points="55,112 70,66 85,112" fill="#0d2618"/>
+    <polygon points="67,112 80,74 93,112" fill="#112e1e"/>
+    <polygon points="300,116 313,72 326,116" fill="#0d2618"/>
+    <polygon points="880,114 895,67 910,114" fill="#0d2618"/>
+    <polygon points="892,114 905,75 918,114" fill="#112e1e"/>
+    <polygon points="1100,116 1113,70 1126,116" fill="#0d2618"/>
+    <polygon points="1112,116 1125,74 1138,116" fill="#112e1e"/>
+    <!-- fairway rolls — full 1200 width -->
+    <path d="M0,148 Q300,134 600,142 Q900,150 1200,140 L1200,180 L0,180 Z" fill="#2d5a3d"/>
+    <path d="M0,160 Q300,152 600,157 Q900,163 1200,154 L1200,180 L0,180 Z" fill="#1a3a2a"/>
+    <!-- Umbrella 1: yellow — left cluster -->
+    <g transform="translate(165,84)">
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#8a7020" stroke-width="2"/>
+      <path d="M-33,0 Q0,-29 33,0 Q17,-9 0,-6 Q-17,-9 -33,0 Z" fill="#f5e642"/>
+      <path d="M-33,0 Q-22,5 -11,1 Q0,5 11,1 Q22,5 33,0" fill="#e8d430"/>
+      <line x1="0" y1="-6" x2="-33" y2="0" stroke="#ccc020" stroke-width=".7"/>
+      <line x1="0" y1="-6" x2="33" y2="0" stroke="#ccc020" stroke-width=".7"/>
+    </g>
+    <!-- Umbrella 2: white + gold stripe — left cluster -->
+    <g transform="translate(232,91)">
+      <line x1="0" y1="0" x2="0" y2="54" stroke="#666" stroke-width="2"/>
+      <path d="M-28,0 Q0,-25 28,0 Q14,-7 0,-5 Q-14,-7 -28,0 Z" fill="#f9f5e8"/>
+      <path d="M-28,0 Q-14,-7 0,-5 Q14,-7 28,0" stroke="#c9a84c" stroke-width="5" fill="none" stroke-dasharray="8,8"/>
+      <path d="M-28,0 Q-18,4 -9,1 Q0,4 9,1 Q18,4 28,0" fill="#e0dcd0"/>
+    </g>
+    <!-- Umbrella 3: green — right cluster -->
+    <g transform="translate(968,87)">
+      <line x1="0" y1="0" x2="1" y2="56" stroke="#2a4a28" stroke-width="2"/>
+      <path d="M-30,0 Q0,-26 30,0 Q15,-7 0,-5 Q-15,-7 -30,0 Z" fill="#4a8c5c"/>
+      <path d="M-30,0 Q-20,5 -10,1 Q0,5 10,1 Q20,5 30,0" fill="#3a7248"/>
+      <line x1="0" y1="-5" x2="-30" y2="0" stroke="#2d5a3d" stroke-width=".8"/>
+      <line x1="0" y1="-5" x2="30" y2="0" stroke="#2d5a3d" stroke-width=".8"/>
+    </g>
+    <!-- Umbrella 4: red + white — right cluster -->
+    <g transform="translate(1036,94)">
+      <line x1="0" y1="0" x2="-1" y2="50" stroke="#7a3030" stroke-width="2"/>
+      <path d="M-26,0 Q0,-23 26,0 Q13,-6 0,-4 Q-13,-6 -26,0 Z" fill="#c03030"/>
+      <path d="M-26,0 Q-13,-6 0,-4 Q13,-6 26,0" stroke="#ffffff" stroke-width="5" fill="none" stroke-dasharray="7,7"/>
+      <path d="M-26,0 Q-17,4 -9,1 Q0,4 9,1 Q17,4 26,0" fill="#a02020"/>
+    </g>
+    <!-- Azalea bush far left -->
+    <g transform="translate(38,152)">
+      <ellipse cx="0" cy="0" rx="40" ry="24" fill="#1e4a2e"/>
+      <circle cx="-20" cy="-11" r="9" fill="#c83060"/><circle cx="-8" cy="-17" r="8" fill="#e8789a"/>
+      <circle cx="5" cy="-13" r="10" fill="#d4547a"/><circle cx="18" cy="-11" r="8" fill="#e8789a"/>
+      <circle cx="27" cy="-8" r="6" fill="#c83060"/>
+      <circle cx="-14" cy="-5" r="6" fill="#f0a0b8"/><circle cx="10" cy="-4" r="6" fill="#f0a0b8"/>
+      <circle cx="-20" cy="-11" r="3.5" fill="#fce8f0" opacity=".55"/>
+      <circle cx="5" cy="-13" r="4" fill="#fce8f0" opacity=".5"/>
+    </g>
+    <!-- Azalea bush left-center -->
+    <g transform="translate(370,156)">
+      <ellipse cx="0" cy="0" rx="32" ry="20" fill="#1e4a2e"/>
+      <circle cx="-15" cy="-10" r="8" fill="#e8789a"/><circle cx="-3" cy="-15" r="9" fill="#d4547a"/>
+      <circle cx="12" cy="-10" r="7" fill="#c83060"/><circle cx="21" cy="-7" r="5" fill="#e8789a"/>
+      <circle cx="-10" cy="-3" r="5" fill="#f0a0b8"/>
+      <circle cx="-3" cy="-15" r="3.5" fill="#fce8f0" opacity=".5"/>
+    </g>
+    <!-- Azalea bush right-center -->
+    <g transform="translate(830,154)">
+      <ellipse cx="0" cy="0" rx="36" ry="22" fill="#1e4a2e"/>
+      <circle cx="-17" cy="-10" r="9" fill="#c83060"/><circle cx="-4" cy="-16" r="8" fill="#e8789a"/>
+      <circle cx="11" cy="-12" r="10" fill="#d4547a"/><circle cx="24" cy="-9" r="7" fill="#e8789a"/>
+      <circle cx="-13" cy="-4" r="6" fill="#f0a0b8"/><circle cx="9" cy="-4" r="6" fill="#f0a0b8"/>
+      <circle cx="11" cy="-12" r="4" fill="#fce8f0" opacity=".48"/>
+    </g>
+    <!-- Azalea bush far right -->
+    <g transform="translate(1162,152)">
+      <ellipse cx="0" cy="0" rx="38" ry="23" fill="#1e4a2e"/>
+      <circle cx="-22" cy="-11" r="8" fill="#e8789a"/><circle cx="-9" cy="-17" r="10" fill="#d4547a"/>
+      <circle cx="6" cy="-13" r="8" fill="#c83060"/><circle cx="20" cy="-10" r="9" fill="#e8789a"/>
+      <circle cx="-16" cy="-4" r="6" fill="#f0a0b8"/><circle cx="11" cy="-5" r="6" fill="#f0a0b8"/>
+      <circle cx="-9" cy="-17" r="4" fill="#fce8f0" opacity=".5"/>
+    </g>
+
+    <!-- Flag pin — dead center of 1200 -->
+    <g transform="translate(600,126)">
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#c9a84c" stroke-width="1.5"/>
+      <polygon points="0,0 20,-9 0,-18" fill="#c9a84c"/>
+      <circle cx="0" cy="40" r="3.5" fill="#1a3a2a" stroke="#c9a84c" stroke-width="1.2"/>
+    </g>
+  </svg>
+</div>
+
+<header>
+  <div class="header-flag">
+    <div class="flag-line l"></div><div class="flag-diamond"></div><div class="flag-line r"></div>
+  </div>
+  <div class="league-name">Huck It, Chuck It, Football</div>
+  <h1>Masters <span>Fantasy</span> Draft Pool</h1>
+  <div class="header-sub">Augusta National · 2026</div>
+</header>
+
+<div class="status-bar">
+  <span><span class="status-dot off" id="live-dot"></span><span id="live-label">—</span></span>
+  <span>Last updated: <span id="last-updated-label">—</span></span>
+  <span id="refresh-indicator">↻ Refreshing…</span>
+</div>
+
+<main>
+  <section id="countdown-section">
+    <div class="countdown-label">The Draw</div>
+    <div class="countdown-sub">Tuesday, April 7 · 8:00 PM Eastern</div>
+    <div class="countdown-grid">
+      <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-unit-label">Days</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-unit-label">Hours</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-unit-label">Minutes</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-unit-label">Seconds</span></div>
+    </div>
+    <div class="draw-info-box">
+      <strong>How it works:</strong> At 8:00 PM ET on Tuesday, each of the 10 teams will be randomly assigned one of the top 20 Masters contenders. Watch live as the draw happens — everyone sees their golfer at the same time.
+      <br><br>
+      <strong>Draft order:</strong> The player with the lowest Masters score earns their team the #1 draft pick. Missed cut players rank below all players who made the cut.
+    </div>
+  </section>
+
+  <section id="draw-section">
+    <div class="draw-title">The Draw</div>
+    <div class="draw-subtitle">Live Random Assignment · April 7, 2026</div>
+    <div class="draw-cards" id="draw-cards-grid"></div>
+  </section>
+
+  <section id="assignments-section">
+    <div class="section-header">
+      <div class="section-title">Draft Pool Assignments</div>
+      <div class="section-note">Tournament begins Thursday, April 9</div>
+    </div>
+    <div id="assignments-list"></div>
+    <div class="rules-box"><h3>Pool Rules</h3><ul>
+      <li>Lowest total score = #1 draft pick</li>
+      <li>Players who make the cut rank above all missed-cut players</li>
+      <li>Missed-cut players are ranked by their 36-hole score</li>
+      <li>Ties in total score share the draft position</li>
+    </ul></div>
+  </section>
+
+  <section id="leaderboard-section">
+    <div class="section-header">
+      <div class="section-title">Draft Order Standings</div>
+      <div class="section-note" id="round-label">Loading…</div>
+    </div>
+    <table class="leaderboard-table">
+      <thead><tr>
+        <th class="center">Pick</th><th>Team</th><th>Golfer</th>
+        <th class="center">Score</th><th class="center hide-mobile">Pos</th><th class="center hide-mobile">Status</th>
+      </tr></thead>
+      <tbody id="leaderboard-body"></tbody>
+    </table>
+    <div class="rules-box"><h3>Pool Rules</h3><ul>
+      <li>Lowest total score = #1 draft pick</li>
+      <li>Players who make the cut rank above all missed-cut players</li>
+      <li>Missed-cut players are ranked by their 36-hole score</li>
+      <li>Ties in total score share the draft position</li>
+    </ul></div>
+  </section>
+</main>
+
+<footer>Huck It, Chuck It, Football &nbsp;·&nbsp; Masters Draft Pool 2026 &nbsp;·&nbsp; Scores update every 30 min during tournament hours</footer>
+
+<script>
+const DRAW_TIME = new Date('2026-04-07T20:00:00-04:00');
+const TOURNAMENT_START = new Date('2026-04-09T08:00:00-04:00');
+const DATA_URL = './pool-data.json';
+const TEAMS_URL = './teams.json';
+const DRAW_PLAYED_KEY = 'hicf_masters_2026_draw_played';
+let poolData = null, teams = null, drawAnimationPlayed = false;
+
+async function init() {
+  await loadData();
+  render();
+  startCountdown();
+  scheduleRefresh();
+}
+
+async function loadData() {
+  try {
+    const [pd, td] = await Promise.all([
+      fetch(DATA_URL + '?t=' + Date.now()).then(r => r.json()),
+      fetch(TEAMS_URL + '?t=' + Date.now()).then(r => r.json())
+    ]);
+    poolData = pd; teams = td;
+  } catch(e) { console.error('Load error:', e); }
+}
+
+function render() {
+  if (!poolData || !teams) return;
+  const now = new Date();
+  const drawDone = poolData.drawCompleted || now >= DRAW_TIME;
+  const tournamentLive = poolData.tournamentStarted || now >= TOURNAMENT_START;
+  updateStatusBar();
+  if (!drawDone) {
+    showSection('countdown-section');
+  } else if (!tournamentLive) {
+    const alreadyPlayed = drawAnimationPlayed || localStorage.getItem(DRAW_PLAYED_KEY);
+    if (!alreadyPlayed && poolData.assignments?.length > 0) {
+      showSection('draw-section'); playDrawAnimation();
+    } else {
+      showSection('assignments-section'); renderAssignments();
+    }
+  } else {
+    showSection('leaderboard-section'); renderLeaderboard();
+  }
+}
+
+function showSection(id) {
+  ['countdown-section','draw-section','assignments-section','leaderboard-section'].forEach(s => {
+    const el = document.getElementById(s);
+    if (el) el.style.display = s === id ? 'block' : 'none';
+  });
+}
+
+function updateStatusBar() {
+  const dot = document.getElementById('live-dot');
+  const label = document.getElementById('live-label');
+  const updated = document.getElementById('last-updated-label');
+  if (poolData?.tournamentStarted) { dot.classList.remove('off'); label.textContent = 'Live · Tournament in progress'; }
+  else if (poolData?.drawCompleted) { dot.classList.add('off'); label.textContent = 'Draw complete · Tournament begins Apr 9'; }
+  else { dot.classList.add('off'); label.textContent = 'Draw pending · April 7, 8 PM ET'; }
+  if (poolData?.lastUpdated) {
+    updated.textContent = new Date(poolData.lastUpdated).toLocaleString('en-US', { month:'short', day:'numeric', hour:'numeric', minute:'2-digit', timeZoneName:'short' });
+  } else { updated.textContent = '—'; }
+}
+
+function startCountdown() {
+  updateCountdown();
+  setInterval(() => {
+    updateCountdown();
+    if (new Date() >= DRAW_TIME && poolData && !poolData.drawCompleted) triggerLocalDraw();
+  }, 1000);
+}
+
+function updateCountdown() {
+  const diff = DRAW_TIME - new Date();
+  if (diff <= 0) return;
+  const p = n => String(n).padStart(2,'0');
+  document.getElementById('cd-days').textContent = p(Math.floor(diff/86400000));
+  document.getElementById('cd-hours').textContent = p(Math.floor((diff%86400000)/3600000));
+  document.getElementById('cd-mins').textContent = p(Math.floor((diff%3600000)/60000));
+  document.getElementById('cd-secs').textContent = p(Math.floor((diff%60000)/1000));
+}
+
+function triggerLocalDraw() {
+  if (drawAnimationPlayed || localStorage.getItem(DRAW_PLAYED_KEY)) return;
+  if (!poolData.drawCompleted || !poolData.assignments?.length) {
+    const shuffled = [...poolData.golfers].sort(() => Math.random() - 0.5).slice(0, teams.length);
+    poolData.assignments = teams.map((t, i) => ({ teamId: t.id, golferId: shuffled[i].id }));
+    poolData.drawCompleted = true;
+  }
+  showSection('draw-section'); playDrawAnimation();
+}
+
+function playDrawAnimation() {
+  drawAnimationPlayed = true;
+  localStorage.setItem(DRAW_PLAYED_KEY, '1');
+  const grid = document.getElementById('draw-cards-grid');
+  grid.innerHTML = '';
+  poolData.assignments.forEach((a, i) => {
+    const team = teams.find(t => t.id === a.teamId);
+    const golfer = poolData.golfers.find(g => g.id === a.golferId);
+    if (!team || !golfer) return;
+    const card = document.createElement('div');
+    card.className = 'draw-card';
+    card.innerHTML = `<div class="draw-card-team">${team.teamName}</div><div class="draw-card-manager">${team.manager}</div><div class="draw-card-gets">draws</div><div class="draw-card-player">${golfer.name}</div><div class="draw-card-odds">${golfer.odds} to win</div>`;
+    grid.appendChild(card);
+    setTimeout(() => { card.classList.add('revealed','flash'); setTimeout(() => card.classList.remove('flash'), 650); }, 400 + i * 600);
+  });
+  setTimeout(() => { showSection('assignments-section'); renderAssignments(); }, 400 + poolData.assignments.length * 600 + 1600);
+}
+
+function renderAssignments() {
+  const list = document.getElementById('assignments-list');
+  if (!list || !poolData.assignments?.length) return;
+  list.innerHTML = '';
+  poolData.assignments.forEach(a => {
+    const team = teams.find(t => t.id === a.teamId);
+    const golfer = poolData.golfers.find(g => g.id === a.golferId);
+    if (!team || !golfer) return;
+    const div = document.createElement('div');
+    div.className = 'pretournament-player fade-in';
+    div.innerHTML = `<div class="pt-left"><div class="pt-team">${team.teamName}</div><div class="pt-manager">${team.manager}</div></div><div class="pt-right"><div class="pt-player">${golfer.name}</div><div class="pt-odds">${golfer.odds} · ${golfer.country}</div></div>`;
+    list.appendChild(div);
+  });
+}
+
+function renderLeaderboard() {
+  const tbody = document.getElementById('leaderboard-body');
+  if (!tbody) return;
+  tbody.innerHTML = '';
+  const rows = poolData.assignments.map(a => ({
+    team: teams.find(t => t.id === a.teamId),
+    golfer: poolData.golfers.find(g => g.id === a.golferId),
+    score: poolData.scores?.[a.golferId] || null
+  })).filter(r => r.team && r.golfer);
+
+  rows.sort((a, b) => {
+    const as = a.score, bs = b.score;
+    if (!as && !bs) return 0; if (!as) return 1; if (!bs) return -1;
+    if (as.withdrawn && !bs.withdrawn) return 1; if (!as.withdrawn && bs.withdrawn) return -1;
+    if (as.madeCut && !bs.madeCut) return -1; if (!as.madeCut && bs.madeCut) return 1;
+    return (as.totalScore ?? 999) - (bs.totalScore ?? 999);
+  });
+
+  let cutDividerAdded = false, pos = 1, prevScore = null, sameCount = 0;
+  rows.forEach((row, index) => {
+    const { team, golfer, score } = row;
+    const madeCut = score?.madeCut !== false;
+    const total = score?.totalScore;
+    if (score && !madeCut && !cutDividerAdded) {
+      const dr = document.createElement('tr'); dr.className = 'cut-divider';
+      dr.innerHTML = `<td colspan="6"><div class="cut-divider-label">✂ Missed Cut</div></td>`;
+      tbody.appendChild(dr); cutDividerAdded = true; pos = index + 1; sameCount = 0; prevScore = null;
+    }
+    if (score && total !== null) {
+      if (total === prevScore) sameCount++;
+      else { pos = index + 1 - sameCount; sameCount = 0; }
+      prevScore = total;
+    }
+    let scoreDisplay, scoreClass;
+    if (!score || total === null) { scoreDisplay = '—'; scoreClass = 'score-na'; }
+    else if (total < 0) { scoreDisplay = total; scoreClass = 'score-under'; }
+    else if (total === 0) { scoreDisplay = 'E'; scoreClass = 'score-even'; }
+    else { scoreDisplay = `+${total}`; scoreClass = 'score-over'; }
+    let statusBadge;
+    if (!score) statusBadge = '<span class="status-badge fin">Not started</span>';
+    else if (score.withdrawn) statusBadge = '<span class="status-badge wd">WD/DQ</span>';
+    else if (!madeCut) statusBadge = '<span class="status-badge cut">Missed cut</span>';
+    else if (score.status === 'F') statusBadge = '<span class="status-badge fin">Final</span>';
+    else statusBadge = '<span class="status-badge active">Active</span>';
+    const tr = document.createElement('tr');
+    tr.className = madeCut ? 'made-cut' : 'missed-cut';
+    tr.innerHTML = `<td class="pos${pos <= 3 ? ' top-three' : ''}">#${pos}</td><td><div class="team-name">${team.teamName}</div><div class="manager-name">${team.manager}</div></td><td><div class="player-name">${golfer.name}</div><div class="player-country">${golfer.country} · ${golfer.odds}</div></td><td class="score ${scoreClass}">${scoreDisplay}</td><td class="thru hide-mobile">${score?.position || '—'}</td><td class="status-cell hide-mobile">${statusBadge}</td>`;
+    tbody.appendChild(tr);
+  });
+  const rl = document.getElementById('round-label');
+  if (rl) { const a = rows.find(r => r.score?.currentRound); rl.textContent = a ? `Round ${a.score.currentRound} · Live` : 'Tournament in progress'; }
+}
+
+function scheduleRefresh() {
+  setInterval(async () => {
+    if (!poolData?.tournamentStarted) return;
+    const ind = document.getElementById('refresh-indicator');
+    if (ind) ind.classList.add('active');
+    await loadData(); render();
+    if (ind) ind.classList.remove('active');
+  }, 5 * 60 * 1000);
+}
+
+init();
+</script>
+</body>
+</html>

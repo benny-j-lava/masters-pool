@@ -1,0 +1,35 @@
+name: Update Masters Scores
+
+on:
+  schedule:
+    # Every 30 minutes from 8am–8pm ET (12:00–00:00 UTC) Thu–Sun during Masters week
+    # April 10–13, 2025
+    - cron: '0,30 12-23 10-13 4 *'
+    - cron: '0,30 0 11-14 4 *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-scores:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch Masters scores
+        run: node fetch-scores.js
+
+      - name: Commit and push if scores changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add pool-data.json
+          git diff --staged --quiet || git commit -m "Update scores: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push

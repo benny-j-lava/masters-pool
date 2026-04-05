@@ -43,8 +43,9 @@
     #refresh-indicator { display: none; color: var(--masters-gold); }
     #refresh-indicator.active { display: inline; }
 
-    main { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+    main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
 
+    /* Countdown */
     #countdown-section { text-align: center; padding: 2.5rem 1rem; }
     .countdown-label { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--masters-gold); margin-bottom: .2rem; }
     .countdown-sub { font-size: .75rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(249,245,232,.4); margin-bottom: 1.5rem; }
@@ -55,6 +56,7 @@
     .draw-info-box { margin: 1.75rem auto 0; max-width: 460px; background: rgba(201,168,76,.07); border: 1px solid rgba(201,168,76,.22); border-radius: 8px; padding: 1.1rem 1.2rem; font-size: .85rem; color: rgba(249,245,232,.75); line-height: 1.65; }
     .draw-info-box strong { color: var(--masters-gold); }
 
+    /* Draw animation */
     #draw-section { display: none; text-align: center; padding: 1.5rem 0; }
     .draw-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--masters-gold); margin-bottom: .2rem; }
     .draw-subtitle { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(249,245,232,.4); margin-bottom: 1.5rem; }
@@ -68,6 +70,7 @@
     .draw-card-player { font-family: 'Playfair Display', serif; font-size: .95rem; color: var(--masters-gold-light); }
     .draw-card-odds { font-size: .7rem; color: rgba(249,245,232,.38); margin-top: .18rem; }
 
+    /* Pre-tournament assignments */
     #assignments-section { display: none; }
     .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .85rem; padding-bottom: .5rem; border-bottom: 1px solid rgba(201,168,76,.28); }
     .section-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--masters-gold); }
@@ -80,35 +83,47 @@
     .pt-player { font-size: .9rem; color: var(--masters-gold-light); }
     .pt-odds { font-size: .7rem; color: rgba(249,245,232,.35); }
 
+    /* Leaderboard */
     #leaderboard-section { display: none; }
     .leaderboard-table { width: 100%; border-collapse: collapse; }
     .leaderboard-table thead tr { background: rgba(0,0,0,.28); }
-    .leaderboard-table th { font-size: .64rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--masters-gold); padding: .55rem .65rem; text-align: left; border-bottom: 1px solid rgba(201,168,76,.16); }
-    .leaderboard-table th.center { text-align: center; }
+    .leaderboard-table th { font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--masters-gold); padding: .52rem .55rem; text-align: center; border-bottom: 1px solid rgba(201,168,76,.16); white-space: nowrap; }
+    .leaderboard-table th.left { text-align: left; }
     .leaderboard-table tbody tr { border-bottom: 1px solid rgba(255,255,255,.05); transition: background .15s; }
     .leaderboard-table tbody tr:hover { background: rgba(255,255,255,.04); }
     .leaderboard-table tbody tr.missed-cut { background: rgba(60,20,20,.3); }
-    .leaderboard-table td { padding: .7rem .65rem; vertical-align: middle; }
-    td.pos { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--masters-gold); width: 38px; text-align: center; }
+    .leaderboard-table td { padding: .65rem .55rem; vertical-align: middle; }
+
+    td.pos { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 700; color: var(--masters-gold); width: 42px; text-align: center; white-space: nowrap; }
     td.pos.top-three { color: var(--masters-gold-light); }
-    .team-name { font-size: .64rem; font-weight: 300; letter-spacing: .1em; text-transform: uppercase; color: rgba(249,245,232,.38); margin-bottom: .15rem; }
-    .manager-name { font-family: 'Playfair Display', serif; font-size: .97rem; font-weight: 600; color: var(--cream); }
-    .player-name { font-size: .9rem; color: var(--cream); }
-    .player-country { font-size: .68rem; color: rgba(249,245,232,.38); margin-top: 1px; }
-    td.score { text-align: center; font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; }
+    td.pos.mc-pos { color: rgba(224,112,112,.7); font-size: .85rem; }
+    .team-name { font-size: .62rem; font-weight: 300; letter-spacing: .1em; text-transform: uppercase; color: rgba(249,245,232,.38); margin-bottom: .12rem; }
+    .manager-name { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 600; color: var(--cream); }
+    .player-name { font-size: .88rem; color: var(--cream); }
+    .player-country { font-size: .66rem; color: rgba(249,245,232,.38); margin-top: 1px; }
+
+    td.score { text-align: center; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; }
     .score-under { color: var(--green-score); }
     .score-even { color: var(--cream); }
     .score-over { color: var(--red); }
     .score-na { color: rgba(249,245,232,.28); font-size: 1rem; }
-    td.thru { text-align: center; font-size: .78rem; color: rgba(249,245,232,.48); }
+
+    td.round-score { text-align: center; font-size: .8rem; font-variant-numeric: tabular-nums; white-space: nowrap; color: rgba(249,245,232,.62); }
+    td.round-score.neg { color: var(--green-score); }
+    td.round-score.pos { color: var(--red); }
+    td.round-score.na { color: rgba(249,245,232,.2); }
+    td.round-score.in-progress { opacity: .55; }
+
+    td.thru { text-align: center; font-size: .78rem; color: rgba(249,245,232,.48); white-space: nowrap; }
     td.status-cell { text-align: center; }
     .status-badge { display: inline-block; font-size: .6rem; font-weight: 600; letter-spacing: .08em; padding: .15rem .42rem; border-radius: 3px; text-transform: uppercase; }
     .status-badge.active { background: rgba(74,140,92,.28); color: #6ec46e; border: 1px solid rgba(74,140,92,.35); }
     .status-badge.cut { background: rgba(180,60,60,.2); color: #e07070; border: 1px solid rgba(180,60,60,.28); }
     .status-badge.wd { background: rgba(100,100,100,.2); color: #999; border: 1px solid rgba(100,100,100,.28); }
     .status-badge.fin { background: rgba(201,168,76,.14); color: var(--masters-gold); border: 1px solid rgba(201,168,76,.28); }
-    .cut-divider td { padding: .35rem .65rem; background: rgba(60,20,20,.5); border-top: 2px solid var(--cut-border); border-bottom: 2px solid var(--cut-border); }
-    .cut-divider-label { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: #e07070; font-weight: 600; }
+
+    .cut-divider td { padding: .32rem .55rem; background: rgba(60,20,20,.5); border-top: 2px solid var(--cut-border); border-bottom: 2px solid var(--cut-border); }
+    .cut-divider-label { font-size: .63rem; letter-spacing: .18em; text-transform: uppercase; color: #e07070; font-weight: 600; }
 
     .rules-box { background: rgba(0,0,0,.22); border: 1px solid rgba(201,168,76,.12); border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1rem; font-size: .8rem; color: rgba(249,245,232,.55); line-height: 1.7; }
     .rules-box h3 { font-family: 'Playfair Display', serif; font-size: .95rem; color: var(--masters-gold); margin-bottom: .5rem; }
@@ -119,8 +134,10 @@
 
     @keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
     .fade-in { animation: fadeInUp .45s ease forwards; }
+
     @media (max-width: 600px) {
-      .leaderboard-table th.hide-mobile, .leaderboard-table td.hide-mobile { display: none; }
+      .leaderboard-table th.hide-mobile,
+      .leaderboard-table td.hide-mobile { display: none; }
     }
   </style>
 </head>
@@ -128,9 +145,7 @@
 
 <div class="augusta-scene">
   <svg viewBox="0 0 1200 180" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-    <!-- background sky/green fill full width -->
     <rect x="0" y="0" width="1200" height="180" fill="#1a3a2a"/>
-    <!-- distant pines — spread across full width -->
     <polygon points="55,112 70,66 85,112" fill="#0d2618"/>
     <polygon points="67,112 80,74 93,112" fill="#112e1e"/>
     <polygon points="300,116 313,72 326,116" fill="#0d2618"/>
@@ -138,75 +153,49 @@
     <polygon points="892,114 905,75 918,114" fill="#112e1e"/>
     <polygon points="1100,116 1113,70 1126,116" fill="#0d2618"/>
     <polygon points="1112,116 1125,74 1138,116" fill="#112e1e"/>
-    <!-- fairway rolls — full 1200 width -->
     <path d="M0,148 Q300,134 600,142 Q900,150 1200,140 L1200,180 L0,180 Z" fill="#2d5a3d"/>
     <path d="M0,160 Q300,152 600,157 Q900,163 1200,154 L1200,180 L0,180 Z" fill="#1a3a2a"/>
-    <!-- Umbrella 1: yellow — left cluster -->
     <g transform="translate(165,84)">
       <line x1="0" y1="0" x2="0" y2="60" stroke="#8a7020" stroke-width="2"/>
       <path d="M-33,0 Q0,-29 33,0 Q17,-9 0,-6 Q-17,-9 -33,0 Z" fill="#f5e642"/>
       <path d="M-33,0 Q-22,5 -11,1 Q0,5 11,1 Q22,5 33,0" fill="#e8d430"/>
-      <line x1="0" y1="-6" x2="-33" y2="0" stroke="#ccc020" stroke-width=".7"/>
-      <line x1="0" y1="-6" x2="33" y2="0" stroke="#ccc020" stroke-width=".7"/>
     </g>
-    <!-- Umbrella 2: white + gold stripe — left cluster -->
     <g transform="translate(232,91)">
       <line x1="0" y1="0" x2="0" y2="54" stroke="#666" stroke-width="2"/>
       <path d="M-28,0 Q0,-25 28,0 Q14,-7 0,-5 Q-14,-7 -28,0 Z" fill="#f9f5e8"/>
       <path d="M-28,0 Q-14,-7 0,-5 Q14,-7 28,0" stroke="#c9a84c" stroke-width="5" fill="none" stroke-dasharray="8,8"/>
-      <path d="M-28,0 Q-18,4 -9,1 Q0,4 9,1 Q18,4 28,0" fill="#e0dcd0"/>
     </g>
-    <!-- Umbrella 3: green — right cluster -->
     <g transform="translate(968,87)">
       <line x1="0" y1="0" x2="1" y2="56" stroke="#2a4a28" stroke-width="2"/>
       <path d="M-30,0 Q0,-26 30,0 Q15,-7 0,-5 Q-15,-7 -30,0 Z" fill="#4a8c5c"/>
       <path d="M-30,0 Q-20,5 -10,1 Q0,5 10,1 Q20,5 30,0" fill="#3a7248"/>
-      <line x1="0" y1="-5" x2="-30" y2="0" stroke="#2d5a3d" stroke-width=".8"/>
-      <line x1="0" y1="-5" x2="30" y2="0" stroke="#2d5a3d" stroke-width=".8"/>
     </g>
-    <!-- Umbrella 4: red + white — right cluster -->
     <g transform="translate(1036,94)">
       <line x1="0" y1="0" x2="-1" y2="50" stroke="#7a3030" stroke-width="2"/>
       <path d="M-26,0 Q0,-23 26,0 Q13,-6 0,-4 Q-13,-6 -26,0 Z" fill="#c03030"/>
       <path d="M-26,0 Q-13,-6 0,-4 Q13,-6 26,0" stroke="#ffffff" stroke-width="5" fill="none" stroke-dasharray="7,7"/>
-      <path d="M-26,0 Q-17,4 -9,1 Q0,4 9,1 Q17,4 26,0" fill="#a02020"/>
     </g>
-    <!-- Azalea bush far left -->
     <g transform="translate(38,152)">
       <ellipse cx="0" cy="0" rx="40" ry="24" fill="#1e4a2e"/>
       <circle cx="-20" cy="-11" r="9" fill="#c83060"/><circle cx="-8" cy="-17" r="8" fill="#e8789a"/>
       <circle cx="5" cy="-13" r="10" fill="#d4547a"/><circle cx="18" cy="-11" r="8" fill="#e8789a"/>
-      <circle cx="27" cy="-8" r="6" fill="#c83060"/>
       <circle cx="-14" cy="-5" r="6" fill="#f0a0b8"/><circle cx="10" cy="-4" r="6" fill="#f0a0b8"/>
-      <circle cx="-20" cy="-11" r="3.5" fill="#fce8f0" opacity=".55"/>
-      <circle cx="5" cy="-13" r="4" fill="#fce8f0" opacity=".5"/>
     </g>
-    <!-- Azalea bush left-center -->
     <g transform="translate(370,156)">
       <ellipse cx="0" cy="0" rx="32" ry="20" fill="#1e4a2e"/>
       <circle cx="-15" cy="-10" r="8" fill="#e8789a"/><circle cx="-3" cy="-15" r="9" fill="#d4547a"/>
       <circle cx="12" cy="-10" r="7" fill="#c83060"/><circle cx="21" cy="-7" r="5" fill="#e8789a"/>
-      <circle cx="-10" cy="-3" r="5" fill="#f0a0b8"/>
-      <circle cx="-3" cy="-15" r="3.5" fill="#fce8f0" opacity=".5"/>
     </g>
-    <!-- Azalea bush right-center -->
     <g transform="translate(830,154)">
       <ellipse cx="0" cy="0" rx="36" ry="22" fill="#1e4a2e"/>
       <circle cx="-17" cy="-10" r="9" fill="#c83060"/><circle cx="-4" cy="-16" r="8" fill="#e8789a"/>
       <circle cx="11" cy="-12" r="10" fill="#d4547a"/><circle cx="24" cy="-9" r="7" fill="#e8789a"/>
-      <circle cx="-13" cy="-4" r="6" fill="#f0a0b8"/><circle cx="9" cy="-4" r="6" fill="#f0a0b8"/>
-      <circle cx="11" cy="-12" r="4" fill="#fce8f0" opacity=".48"/>
     </g>
-    <!-- Azalea bush far right -->
     <g transform="translate(1162,152)">
       <ellipse cx="0" cy="0" rx="38" ry="23" fill="#1e4a2e"/>
       <circle cx="-22" cy="-11" r="8" fill="#e8789a"/><circle cx="-9" cy="-17" r="10" fill="#d4547a"/>
       <circle cx="6" cy="-13" r="8" fill="#c83060"/><circle cx="20" cy="-10" r="9" fill="#e8789a"/>
-      <circle cx="-16" cy="-4" r="6" fill="#f0a0b8"/><circle cx="11" cy="-5" r="6" fill="#f0a0b8"/>
-      <circle cx="-9" cy="-17" r="4" fill="#fce8f0" opacity=".5"/>
     </g>
-
-    <!-- Flag pin — dead center of 1200 -->
     <g transform="translate(600,126)">
       <line x1="0" y1="0" x2="0" y2="40" stroke="#c9a84c" stroke-width="1.5"/>
       <polygon points="0,0 20,-9 0,-18" fill="#c9a84c"/>
@@ -274,8 +263,16 @@
     </div>
     <table class="leaderboard-table">
       <thead><tr>
-        <th class="center">Pick</th><th>Team</th><th>Golfer</th>
-        <th class="center">Score</th><th class="center hide-mobile">Pos</th><th class="center hide-mobile">Status</th>
+        <th>Pos</th>
+        <th class="left">Team</th>
+        <th class="left">Golfer</th>
+        <th>Total</th>
+        <th class="hide-mobile">R1</th>
+        <th class="hide-mobile">R2</th>
+        <th class="hide-mobile">R3</th>
+        <th class="hide-mobile">R4</th>
+        <th>Thru</th>
+        <th class="hide-mobile">Status</th>
       </tr></thead>
       <tbody id="leaderboard-body"></tbody>
     </table>
@@ -346,11 +343,17 @@ function updateStatusBar() {
   const dot = document.getElementById('live-dot');
   const label = document.getElementById('live-label');
   const updated = document.getElementById('last-updated-label');
-  if (poolData?.tournamentStarted) { dot.classList.remove('off'); label.textContent = 'Live · Tournament in progress'; }
-  else if (poolData?.drawCompleted) { dot.classList.add('off'); label.textContent = 'Draw complete · Tournament begins Apr 9'; }
-  else { dot.classList.add('off'); label.textContent = 'Draw pending · April 7, 8 PM ET'; }
+  if (poolData?.tournamentStarted) {
+    dot.classList.remove('off'); label.textContent = 'Live · Tournament in progress';
+  } else if (poolData?.drawCompleted) {
+    dot.classList.add('off'); label.textContent = 'Draw complete · Tournament begins Apr 9';
+  } else {
+    dot.classList.add('off'); label.textContent = 'Draw pending · April 7, 8 PM ET';
+  }
   if (poolData?.lastUpdated) {
-    updated.textContent = new Date(poolData.lastUpdated).toLocaleString('en-US', { month:'short', day:'numeric', hour:'numeric', minute:'2-digit', timeZoneName:'short' });
+    updated.textContent = new Date(poolData.lastUpdated).toLocaleString('en-US', {
+      month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
+    });
   } else { updated.textContent = '—'; }
 }
 
@@ -365,11 +368,11 @@ function startCountdown() {
 function updateCountdown() {
   const diff = DRAW_TIME - new Date();
   if (diff <= 0) return;
-  const p = n => String(n).padStart(2,'0');
-  document.getElementById('cd-days').textContent = p(Math.floor(diff/86400000));
-  document.getElementById('cd-hours').textContent = p(Math.floor((diff%86400000)/3600000));
-  document.getElementById('cd-mins').textContent = p(Math.floor((diff%3600000)/60000));
-  document.getElementById('cd-secs').textContent = p(Math.floor((diff%60000)/1000));
+  const p = n => String(n).padStart(2, '0');
+  document.getElementById('cd-days').textContent  = p(Math.floor(diff / 86400000));
+  document.getElementById('cd-hours').textContent = p(Math.floor((diff % 86400000) / 3600000));
+  document.getElementById('cd-mins').textContent  = p(Math.floor((diff % 3600000) / 60000));
+  document.getElementById('cd-secs').textContent  = p(Math.floor((diff % 60000) / 1000));
 }
 
 function triggerLocalDraw() {
@@ -395,9 +398,14 @@ function playDrawAnimation() {
     card.className = 'draw-card';
     card.innerHTML = `<div class="draw-card-team">${team.teamName}</div><div class="draw-card-manager">${team.manager}</div><div class="draw-card-gets">draws</div><div class="draw-card-player">${golfer.name}</div><div class="draw-card-odds">${golfer.odds} to win</div>`;
     grid.appendChild(card);
-    setTimeout(() => { card.classList.add('revealed','flash'); setTimeout(() => card.classList.remove('flash'), 650); }, 400 + i * 600);
+    setTimeout(() => {
+      card.classList.add('revealed', 'flash');
+      setTimeout(() => card.classList.remove('flash'), 650);
+    }, 400 + i * 600);
   });
-  setTimeout(() => { showSection('assignments-section'); renderAssignments(); }, 400 + poolData.assignments.length * 600 + 1600);
+  setTimeout(() => {
+    showSection('assignments-section'); renderAssignments();
+  }, 400 + poolData.assignments.length * 600 + 1600);
 }
 
 function renderAssignments() {
@@ -415,65 +423,153 @@ function renderAssignments() {
   });
 }
 
+// ─── Leaderboard ────────────────────────────────────────────────────────────
+
+function parseScore(s) {
+  if (s === null || s === undefined) return null;
+  if (typeof s === 'number') return s;
+  const str = String(s).trim();
+  if (str === 'E' || str === 'Even') return 0;
+  if (str === '--' || str === '' || str === '-') return null;
+  const n = parseInt(str.replace('+', ''));
+  return isNaN(n) ? null : n;
+}
+
+function fmtTotal(total) {
+  if (total === null || total === undefined) return { text: '—', cls: 'score-na' };
+  if (total < 0) return { text: String(total), cls: 'score-under' };
+  if (total === 0) return { text: 'E', cls: 'score-even' };
+  return { text: '+' + total, cls: 'score-over' };
+}
+
+function roundCell(toPar, inProgress) {
+  // toPar is a string like "-6", "E", "+2", or null
+  if (toPar === null || toPar === undefined || toPar === '-') {
+    return `<td class="round-score na hide-mobile">—</td>`;
+  }
+  const v = parseScore(toPar);
+  const cls = v < 0 ? 'neg' : v > 0 ? 'pos' : '';
+  const txt = v < 0 ? String(v) : v === 0 ? 'E' : '+' + v;
+  const dim = inProgress ? ' in-progress' : '';
+  return `<td class="round-score ${cls}${dim} hide-mobile">${txt}</td>`;
+}
+
+// Golf-style position labels: T4, T4, 6, 7 etc.
+// Ties share the starting position and the count skips ahead.
+function assignPositions(list, offset) {
+  let i = 0;
+  while (i < list.length) {
+    let j = i;
+    while (j < list.length && list[j].sortTotal === list[i].sortTotal) j++;
+    const posNum = (offset || 0) + i + 1;
+    const label = (j - i) > 1 ? 'T' + posNum : String(posNum);
+    for (let k = i; k < j; k++) list[k].posLabel = label;
+    i = j;
+  }
+}
+
 function renderLeaderboard() {
   const tbody = document.getElementById('leaderboard-body');
   if (!tbody) return;
   tbody.innerHTML = '';
+
   const rows = poolData.assignments.map(a => ({
     team: teams.find(t => t.id === a.teamId),
     golfer: poolData.golfers.find(g => g.id === a.golferId),
     score: poolData.scores?.[a.golferId] || null
   })).filter(r => r.team && r.golfer);
 
-  const getRound = (score, r) => {
-    if (!score?.roundScores) return 999;
-    const v = score.roundScores[r];
-    return (v !== undefined && v !== null && v !== '') ? (parseInt(v) || 999) : 999;
-  };
-
+  // Sort: withdrawn last, missed-cut below made-cut, then by total, then R4→R1
   rows.sort((a, b) => {
     const as = a.score, bs = b.score;
-    if (!as && !bs) return 0; if (!as) return 1; if (!bs) return -1;
-    if (as.withdrawn && !bs.withdrawn) return 1; if (!as.withdrawn && bs.withdrawn) return -1;
-    if (as.madeCut && !bs.madeCut) return -1; if (!as.madeCut && bs.madeCut) return 1;
-    const totalDiff = (as.totalScore ?? 999) - (bs.totalScore ?? 999);
-    if (totalDiff !== 0) return totalDiff;
+    if (!as && !bs) return 0;
+    if (!as) return 1;
+    if (!bs) return -1;
+    if (as.withdrawn && !bs.withdrawn) return 1;
+    if (!as.withdrawn && bs.withdrawn) return -1;
+    if (as.madeCut && !bs.madeCut) return -1;
+    if (!as.madeCut && bs.madeCut) return 1;
+    const ta = as.totalScore ?? 999, tb = bs.totalScore ?? 999;
+    if (ta !== tb) return ta - tb;
+    // Tiebreaker R4 → R3 → R2 → R1
     for (let r = 3; r >= 0; r--) {
-      const diff = getRound(as, r) - getRound(bs, r);
-      if (diff !== 0) return diff;
+      const ra = parseScore(as.roundScores?.[r]) ?? 999;
+      const rb = parseScore(bs.roundScores?.[r]) ?? 999;
+      if (ra !== rb) return ra - rb;
     }
     return 0;
   });
 
-  let cutDividerAdded = false, pos = 1;
-  rows.forEach((row, index) => {
+  // Separate made/missed-cut groups and assign positions
+  rows.forEach(r => { r.sortTotal = r.score?.totalScore ?? 999; });
+  const made   = rows.filter(r => !r.score || r.score.madeCut !== false);
+  const missed = rows.filter(r => r.score && r.score.madeCut === false);
+  assignPositions(made, 0);
+  assignPositions(missed, made.length);
+
+  let cutDividerAdded = false;
+
+  [...made, ...missed].forEach(row => {
     const { team, golfer, score } = row;
-    const madeCut = score?.madeCut !== false;
-    const total = score?.totalScore;
-    if (score && !madeCut && !cutDividerAdded) {
-      const dr = document.createElement('tr'); dr.className = 'cut-divider';
-      dr.innerHTML = `<td colspan="6"><div class="cut-divider-label">✂ Missed Cut</div></td>`;
-      tbody.appendChild(dr); cutDividerAdded = true; pos = index + 1;
+    const isMC = score && score.madeCut === false;
+
+    // Insert cut divider before first missed-cut player
+    if (isMC && !cutDividerAdded) {
+      const dr = document.createElement('tr');
+      dr.className = 'cut-divider';
+      dr.innerHTML = `<td colspan="10"><div class="cut-divider-label">✂ Missed Cut</div></td>`;
+      tbody.appendChild(dr);
+      cutDividerAdded = true;
     }
-    if (score && total !== null) { pos = index + 1; }
-    let scoreDisplay, scoreClass;
-    if (!score || total === null) { scoreDisplay = '—'; scoreClass = 'score-na'; }
-    else if (total < 0) { scoreDisplay = total; scoreClass = 'score-under'; }
-    else if (total === 0) { scoreDisplay = 'E'; scoreClass = 'score-even'; }
-    else { scoreDisplay = `+${total}`; scoreClass = 'score-over'; }
+
+    const posLabel = row.posLabel || '—';
+    const posNum = parseInt(posLabel.replace('T', ''));
+    const isTop3 = !isMC && posNum <= 3;
+
+    const total = fmtTotal(score?.totalScore ?? null);
+
+    // Round score cells — R4 in-progress if round count < 4 and we have R4 data
+    const rs = score?.roundScores || [null, null, null, null];
+    const currentRound = score?.currentRound || 0;
+    const r4InProgress = rs[3] !== null && currentRound === 4 && score?.thru !== 'F';
+
+    const thru = score?.thru || '—';
+
     let statusBadge;
-    if (!score) statusBadge = '<span class="status-badge fin">Not started</span>';
-    else if (score.withdrawn) statusBadge = '<span class="status-badge wd">WD/DQ</span>';
-    else if (!madeCut) statusBadge = '<span class="status-badge cut">Missed cut</span>';
-    else if (score.status === 'F') statusBadge = '<span class="status-badge fin">Final</span>';
-    else statusBadge = '<span class="status-badge active">Active</span>';
+    if (!score) {
+      statusBadge = '<span class="status-badge fin">Not started</span>';
+    } else if (score.withdrawn) {
+      statusBadge = '<span class="status-badge wd">WD/DQ</span>';
+    } else if (isMC) {
+      statusBadge = '<span class="status-badge cut">Missed cut</span>';
+    } else if (score.thru === 'F') {
+      statusBadge = '<span class="status-badge fin">Final</span>';
+    } else {
+      statusBadge = '<span class="status-badge active">Active</span>';
+    }
+
     const tr = document.createElement('tr');
-    tr.className = madeCut ? 'made-cut' : 'missed-cut';
-    tr.innerHTML = `<td class="pos${pos <= 3 ? ' top-three' : ''}">#${pos}</td><td><div class="team-name">${team.teamName}</div><div class="manager-name">${team.manager}</div></td><td><div class="player-name">${golfer.name}</div><div class="player-country">${golfer.country} · ${golfer.odds}</div></td><td class="score ${scoreClass}">${scoreDisplay}</td><td class="thru hide-mobile">${score?.position || '—'}</td><td class="status-cell hide-mobile">${statusBadge}</td>`;
+    tr.className = isMC ? 'missed-cut' : '';
+    tr.innerHTML =
+      `<td class="pos${isTop3 ? ' top-three' : isMC ? ' mc-pos' : ''}">${posLabel}</td>` +
+      `<td><div class="team-name">${team.teamName}</div><div class="manager-name">${team.manager}</div></td>` +
+      `<td><div class="player-name">${golfer.name}</div><div class="player-country">${golfer.country} · ${golfer.odds}</div></td>` +
+      `<td class="score ${total.cls}">${total.text}</td>` +
+      roundCell(rs[0], false) +
+      roundCell(rs[1], false) +
+      roundCell(rs[2], false) +
+      roundCell(rs[3], r4InProgress) +
+      `<td class="thru">${isMC ? '—' : thru}</td>` +
+      `<td class="status-cell hide-mobile">${statusBadge}</td>`;
     tbody.appendChild(tr);
   });
+
+  // Update round label in header
   const rl = document.getElementById('round-label');
-  if (rl) { const a = rows.find(r => r.score?.currentRound); rl.textContent = a ? `Round ${a.score.currentRound} · Live` : 'Tournament in progress'; }
+  if (rl) {
+    const active = rows.find(r => r.score?.currentRound);
+    rl.textContent = active ? `Round ${active.score.currentRound} · Live` : 'Tournament in progress';
+  }
 }
 
 function scheduleRefresh() {

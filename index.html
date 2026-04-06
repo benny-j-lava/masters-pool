@@ -322,7 +322,6 @@
 
 <script>
 const DRAW_TIME = new Date('2026-04-07T20:00:00-04:00');
-const DRAW_TIME = new Date('2026-04-07T20:00:00-04:00');
 const TOURNAMENT_START = new Date('2026-04-09T08:00:00-04:00');
 const DATA_URL = './pool-data.json';
 const TEAMS_URL = './teams.json';
@@ -426,12 +425,12 @@ function updateStatusBar() {
 
 function startCountdown() {
   updateCountdown();
-  setInterval(() => { updateCountdown(); render(); }, 1000);
+  setInterval(updateCountdown, 1000);
 }
 
 function updateCountdown() {
   const diff = DRAW_TIME - new Date();
-  if (diff <= 0) return;
+  if (diff <= 0) { render(); return; }
   const p = n => String(n).padStart(2, '0');
   document.getElementById('cd-days').textContent  = p(Math.floor(diff / 86400000));
   document.getElementById('cd-hours').textContent = p(Math.floor((diff % 86400000) / 3600000));
@@ -499,13 +498,6 @@ function renderAssignments() {
   });
 }
 
-    if (!team || !golfer) return;
-    const div = document.createElement('div');
-    div.className = 'pretournament-player fade-in';
-    div.innerHTML = `<div class="pt-left"><div class="pt-team">${team.teamName}</div><div class="pt-manager">${team.manager}</div></div><div class="pt-right"><div class="pt-player">${golfer.name}</div><div class="pt-odds">${golfer.odds} · ${golfer.country}</div></div>`;
-    list.appendChild(div);
-  });
-}
 
 // ─── Leaderboard ────────────────────────────────────────────────────────────
 

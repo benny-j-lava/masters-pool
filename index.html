@@ -139,6 +139,26 @@
       .leaderboard-table th.hide-mobile,
       .leaderboard-table td.hide-mobile { display: none; }
     }
+
+    /* Draw holding screen */
+    #draw-pending-section { display: none; text-align: center; padding: 3rem 1rem 2rem; position: relative; overflow: hidden; min-height: 320px; }
+    .draw-pending-flag { margin: 0 auto 2rem; width: 48px; }
+    .draw-pending-flag svg { display: block; width: 100%; transform-origin: bottom center; animation: flagSway 3s ease-in-out infinite; }
+    @keyframes flagSway { 0%,100%{transform:rotate(-5deg);}50%{transform:rotate(5deg);} }
+    .draw-pending-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.3rem,4vw,1.9rem); color: var(--cream); margin-bottom: .6rem; line-height: 1.35; }
+    .draw-pending-sub { font-size: .72rem; font-weight: 300; letter-spacing: .22em; text-transform: uppercase; color: rgba(249,245,232,.4); margin-bottom: 2rem; }
+    .draw-pending-dots { display: flex; justify-content: center; gap: 8px; }
+    .draw-pending-dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--masters-gold); animation: dotPulse 1.5s ease-in-out infinite; }
+    .draw-pending-dots span:nth-child(2) { animation-delay: .3s; }
+    .draw-pending-dots span:nth-child(3) { animation-delay: .6s; }
+    @keyframes dotPulse { 0%,100%{opacity:.2;}50%{opacity:1;} }
+    .petal { position: absolute; border-radius: 60% 40% 60% 40%; opacity: 0; pointer-events: none; animation: petalFall linear infinite; }
+    @keyframes petalFall { 0%{opacity:0;transform:translateY(-10px) rotate(0deg);}10%{opacity:.65;}90%{opacity:.3;}100%{opacity:0;transform:translateY(360px) rotate(380deg);} }
+
+    @media (max-width: 600px) {
+      .leaderboard-table th.hide-mobile,
+      .leaderboard-table td.hide-mobile { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -283,17 +303,32 @@
       <li>Tiebreaker: final round score · then R3 · then R2 · then R1</li>
     </ul></div>
   </section>
+
+  <section id="draw-pending-section">
+    <div class="draw-pending-flag">
+      <svg viewBox="0 0 48 100" xmlns="http://www.w3.org/2000/svg">
+        <line x1="24" y1="8" x2="24" y2="96" stroke="#c9a84c" stroke-width="2.5"/>
+        <polygon points="24,8 48,20 24,32" fill="#c9a84c"/>
+        <circle cx="24" cy="96" r="4" fill="#1a3a2a" stroke="#c9a84c" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="draw-pending-title">The selection committee<br>is deliberating…</div>
+    <div class="draw-pending-sub">Each team's golfer is being drawn · Results will appear momentarily</div>
+    <div class="draw-pending-dots"><span></span><span></span><span></span></div>
+  </section>
 </main>
 
 <footer>Huck It, Chuck It, Football &nbsp;·&nbsp; Masters Draft Pool 2026 &nbsp;·&nbsp; Scores update every 30 min during tournament hours</footer>
 
 <script>
 const DRAW_TIME = new Date('2026-04-07T20:00:00-04:00');
+const DRAW_TIME = new Date('2026-04-07T20:00:00-04:00');
 const TOURNAMENT_START = new Date('2026-04-09T08:00:00-04:00');
 const DATA_URL = './pool-data.json';
 const TEAMS_URL = './teams.json';
 const DRAW_PLAYED_KEY = 'hicf_masters_2026_draw_played';
 let poolData = null, teams = null, drawAnimationPlayed = false;
+let drawPollInterval = null;
 
 async function init() {
   await loadData();
@@ -315,28 +350,58 @@ async function loadData() {
 function render() {
   if (!poolData || !teams) return;
   const now = new Date();
-  const drawDone = poolData.drawCompleted || now >= DRAW_TIME;
+  const drawDone = poolData.drawCompleted && poolData.assignments?.length > 0;
+  const pastDrawTime = now >= DRAW_TIME;
   const tournamentLive = poolData.tournamentStarted || now >= TOURNAMENT_START;
   updateStatusBar();
-  if (!drawDone) {
+
+  if (!pastDrawTime) {
+    // Before 8pm: show countdown
+    stopDrawPolling();
     showSection('countdown-section');
+  } else if (!drawDone) {
+    // Past 8pm but draw not yet in pool-data.json: show holding screen
+    showSection('draw-pending-section');
+    startDrawPolling();
   } else if (!tournamentLive) {
+    // Draw done, tournament not started
+    stopDrawPolling();
     const alreadyPlayed = drawAnimationPlayed || localStorage.getItem(DRAW_PLAYED_KEY);
-    if (!alreadyPlayed && poolData.assignments?.length > 0) {
+    if (!alreadyPlayed) {
       showSection('draw-section'); playDrawAnimation();
     } else {
       showSection('assignments-section'); renderAssignments();
     }
   } else {
+    // Tournament live
+    stopDrawPolling();
     showSection('leaderboard-section'); renderLeaderboard();
   }
 }
 
 function showSection(id) {
-  ['countdown-section','draw-section','assignments-section','leaderboard-section'].forEach(s => {
+  ['countdown-section','draw-pending-section','draw-section','assignments-section','leaderboard-section'].forEach(s => {
     const el = document.getElementById(s);
     if (el) el.style.display = s === id ? 'block' : 'none';
   });
+  if (id === 'draw-pending-section') spawnPetals();
+}
+
+// Poll every 15 seconds while holding screen is showing,
+// waiting for GitHub Actions to write drawCompleted: true
+function startDrawPolling() {
+  if (drawPollInterval) return;
+  drawPollInterval = setInterval(async () => {
+    await loadData();
+    if (poolData?.drawCompleted && poolData?.assignments?.length > 0) {
+      stopDrawPolling();
+      render();
+    }
+  }, 15000);
+}
+
+function stopDrawPolling() {
+  if (drawPollInterval) { clearInterval(drawPollInterval); drawPollInterval = null; }
 }
 
 function updateStatusBar() {
@@ -347,6 +412,8 @@ function updateStatusBar() {
     dot.classList.remove('off'); label.textContent = 'Live · Tournament in progress';
   } else if (poolData?.drawCompleted) {
     dot.classList.add('off'); label.textContent = 'Draw complete · Tournament begins Apr 9';
+  } else if (new Date() >= DRAW_TIME) {
+    dot.classList.remove('off'); label.textContent = 'Draw underway · Stand by…';
   } else {
     dot.classList.add('off'); label.textContent = 'Draw pending · April 7, 8 PM ET';
   }
@@ -359,10 +426,7 @@ function updateStatusBar() {
 
 function startCountdown() {
   updateCountdown();
-  setInterval(() => {
-    updateCountdown();
-    if (new Date() >= DRAW_TIME && poolData && !poolData.drawCompleted) triggerLocalDraw();
-  }, 1000);
+  setInterval(() => { updateCountdown(); render(); }, 1000);
 }
 
 function updateCountdown() {
@@ -375,14 +439,26 @@ function updateCountdown() {
   document.getElementById('cd-secs').textContent  = p(Math.floor((diff % 60000) / 1000));
 }
 
-function triggerLocalDraw() {
-  if (drawAnimationPlayed || localStorage.getItem(DRAW_PLAYED_KEY)) return;
-  if (!poolData.drawCompleted || !poolData.assignments?.length) {
-    const shuffled = [...poolData.golfers].sort(() => Math.random() - 0.5).slice(0, teams.length);
-    poolData.assignments = teams.map((t, i) => ({ teamId: t.id, golferId: shuffled[i].id }));
-    poolData.drawCompleted = true;
+// Spawn a handful of drifting azalea petals on the holding screen
+function spawnPetals() {
+  const section = document.getElementById('draw-pending-section');
+  if (!section || section.querySelector('.petal')) return; // already spawned
+  const colors = ['#e8789a','#d4547a','#c83060','#f0a0b8'];
+  for (let i = 0; i < 12; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    const size = 8 + Math.random() * 8;
+    p.style.cssText = [
+      'width:' + size + 'px',
+      'height:' + size + 'px',
+      'left:' + (5 + Math.random() * 90) + '%',
+      'top:0',
+      'background:' + colors[Math.floor(Math.random() * colors.length)],
+      'animation-duration:' + (4 + Math.random() * 5) + 's',
+      'animation-delay:' + (Math.random() * 6) + 's'
+    ].join(';');
+    section.appendChild(p);
   }
-  showSection('draw-section'); playDrawAnimation();
 }
 
 function playDrawAnimation() {
@@ -415,6 +491,14 @@ function renderAssignments() {
   poolData.assignments.forEach(a => {
     const team = teams.find(t => t.id === a.teamId);
     const golfer = poolData.golfers.find(g => g.id === a.golferId);
+    if (!team || !golfer) return;
+    const div = document.createElement('div');
+    div.className = 'pretournament-player fade-in';
+    div.innerHTML = `<div class="pt-left"><div class="pt-team">${team.teamName}</div><div class="pt-manager">${team.manager}</div></div><div class="pt-right"><div class="pt-player">${golfer.name}</div><div class="pt-odds">${golfer.odds} · ${golfer.country}</div></div>`;
+    list.appendChild(div);
+  });
+}
+
     if (!team || !golfer) return;
     const div = document.createElement('div');
     div.className = 'pretournament-player fade-in';

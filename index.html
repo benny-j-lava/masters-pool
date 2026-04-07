@@ -140,6 +140,16 @@
       .leaderboard-table td.hide-mobile { display: none; }
     }
 
+    /* Golfer pool grid on countdown page */
+    .pool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .55rem; margin-top: 1.4rem; text-align: left; }
+    .pool-card { background: rgba(0,0,0,.22); border: 1px solid rgba(201,168,76,.12); border-radius: 8px; padding: .7rem .85rem; display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+    .pool-card-name { font-family: 'Playfair Display', serif; font-size: .88rem; color: var(--cream); line-height: 1.25; }
+    .pool-card-meta { font-size: .62rem; color: rgba(249,245,232,.35); margin-top: .1rem; }
+    .pool-card-odds { font-size: .82rem; font-weight: 600; color: var(--masters-gold); white-space: nowrap; }
+    .pool-header { display: flex; justify-content: space-between; align-items: baseline; margin-top: 1.75rem; padding-bottom: .45rem; border-bottom: 1px solid rgba(201,168,76,.18); }
+    .pool-header-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--masters-gold); }
+    .pool-header-note { font-size: .65rem; color: rgba(249,245,232,.3); }
+
     /* Draw holding screen */
     #draw-pending-section { display: none; text-align: center; padding: 3rem 1rem 2rem; position: relative; overflow: hidden; min-height: 320px; }
     .draw-pending-flag { margin: 0 auto 2rem; width: 48px; }
@@ -253,7 +263,14 @@
       <strong>How it works:</strong> At 8:00 PM ET on Tuesday, each of the 10 teams will be randomly assigned one of the top 20 Masters contenders. Watch live as the draw happens — everyone sees their golfer at the same time.
       <br><br>
       <strong>Draft order:</strong> Lowest total score = #1 pick. Ties broken by final round score, then working backwards round by round. Missed cut players rank below all who made the cut.
+      <br><br>
+      <strong>Odds:</strong> All odds locked at 6:30 PM ET on April 7 from DraftKings.
     </div>
+    <div class="pool-header">
+      <div class="pool-header-title">The Field</div>
+      <div class="pool-header-note">20 golfers · DraftKings odds · locked 6:30 PM ET Apr 7</div>
+    </div>
+    <div class="pool-grid" id="pool-grid"></div>
   </section>
 
   <section id="draw-section">
@@ -358,6 +375,7 @@ function render() {
     // Before 8pm: show countdown
     stopDrawPolling();
     showSection('countdown-section');
+    renderPoolGrid();
   } else if (!drawDone) {
     // Past 8pm but draw not yet in pool-data.json: show holding screen
     showSection('draw-pending-section');
@@ -481,6 +499,18 @@ function playDrawAnimation() {
   setTimeout(() => {
     showSection('assignments-section'); renderAssignments();
   }, 400 + poolData.assignments.length * 600 + 1600);
+}
+
+function renderPoolGrid() {
+  const grid = document.getElementById('pool-grid');
+  if (!grid || !poolData?.golfers) return;
+  grid.innerHTML = '';
+  poolData.golfers.forEach(g => {
+    const card = document.createElement('div');
+    card.className = 'pool-card';
+    card.innerHTML = `<div><div class="pool-card-name">${g.name}</div><div class="pool-card-meta">${g.country}</div></div><div class="pool-card-odds">${g.odds}</div>`;
+    grid.appendChild(card);
+  });
 }
 
 function renderAssignments() {

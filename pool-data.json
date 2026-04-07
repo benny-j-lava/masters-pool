@@ -23,7 +23,7 @@
     { "id": "patrick-reed", "name": "Patrick Reed", "country": "USA", "odds": "+4300" },
     { "id": "chris-gotterup", "name": "Chris Gotterup", "country": "USA", "odds": "+4300" },
     { "id": "viktor-hovland", "name": "Viktor Hovland", "country": "NOR", "odds": "+4500" },
-    { "id": "russell-henley", "name": "Russell Henley", "country": "USA", "odds": "+4700" },
+    { "id": "russell-henley", "name": "Russell Henley", "country": "USA", "odds": "+4700" }
   ],
   "assignments": [],
   "scores": {}

@@ -264,7 +264,7 @@
       <br><br>
       <strong>Draft order:</strong> Lowest total score = #1 pick. Ties broken by final round score, then working backwards round by round. Missed cut players rank below all who made the cut.
       <br><br>
-      <strong>Odds:</strong> All odds locked at 6:30 PM ET on April 7 from DraftKings.
+      <strong>Odds:</strong> All odds locked at 6:30 PM ET on April 7 from DraftKings, shortly before the draw.
     </div>
     <div class="pool-header">
       <div class="pool-header-title">The Field</div>
@@ -348,6 +348,7 @@ let drawPollInterval = null;
 
 async function init() {
   await loadData();
+  renderPoolGrid();
   render();
   startCountdown();
   scheduleRefresh();

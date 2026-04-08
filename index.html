@@ -449,7 +449,7 @@ function startCountdown() {
 
 function updateCountdown() {
   const diff = DRAW_TIME - new Date();
-  if (diff <= 0) { render(); return; }
+  if (diff <= 0) return;
   const p = n => String(n).padStart(2, '0');
   document.getElementById('cd-days').textContent  = p(Math.floor(diff / 86400000));
   document.getElementById('cd-hours').textContent = p(Math.floor((diff % 86400000) / 3600000));

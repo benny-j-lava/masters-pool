@@ -1,30 +1,172 @@
 {
   "drawTime": "2026-04-08T20:00:00-04:00",
-  "drawCompleted": false,
+  "drawCompleted": true,
   "lastUpdated": null,
   "tournamentStarted": false,
   "golfers": [
-    { "id": "scottie-scheffler", "name": "Scottie Scheffler", "country": "USA", "odds": "+495" },
-    { "id": "jon-rahm", "name": "Jon Rahm", "country": "ESP", "odds": "+910" },
-    { "id": "bryson-dechambeau", "name": "Bryson DeChambeau", "country": "USA", "odds": "+1050" },
-    { "id": "rory-mcilroy", "name": "Rory McIlroy", "country": "NIR", "odds": "+1175" },
-    { "id": "ludvig-aberg", "name": "Ludvig Åberg", "country": "SWE", "odds": "+1650" },
-    { "id": "xander-schauffele", "name": "Xander Schauffele", "country": "USA", "odds": "+1800" },
-    { "id": "tommy-fleetwood", "name": "Tommy Fleetwood", "country": "ENG", "odds": "+2250" },
-    { "id": "cameron-young", "name": "Cameron Young", "country": "USA", "odds": "+2300" },
-    { "id": "matt-fitzpatrick", "name": "Matt Fitzpatrick", "country": "ENG", "odds": "+2350" },
-    { "id": "hideki-matsuyama", "name": "Hideki Matsuyama", "country": "JPN", "odds": "+2700" },
-    { "id": "collin-morikawa", "name": "Collin Morikawa", "country": "USA", "odds": "+3100" },
-    { "id": "min-woo-lee", "name": "Min Woo Lee", "country": "AUS", "odds": "+3400" },
-    { "id": "justin-rose", "name": "Justin Rose", "country": "ENG", "odds": "+3500" },
-    { "id": "robert-macintyre", "name": "Robert MacIntyre", "country": "SCO", "odds": "+3500" },
-    { "id": "brooks-koepka", "name": "Brooks Koepka", "country": "USA", "odds": "+3700" },
-    { "id": "jordan-spieth", "name": "Jordan Spieth", "country": "USA", "odds": "+4200" },
-    { "id": "patrick-reed", "name": "Patrick Reed", "country": "USA", "odds": "+4300" },
-    { "id": "chris-gotterup", "name": "Chris Gotterup", "country": "USA", "odds": "+4300" },
-    { "id": "viktor-hovland", "name": "Viktor Hovland", "country": "NOR", "odds": "+4500" },
-    { "id": "russell-henley", "name": "Russell Henley", "country": "USA", "odds": "+4700" }
+    {
+      "id": "scottie-scheffler",
+      "name": "Scottie Scheffler",
+      "country": "USA",
+      "odds": "+495"
+    },
+    {
+      "id": "jon-rahm",
+      "name": "Jon Rahm",
+      "country": "ESP",
+      "odds": "+910"
+    },
+    {
+      "id": "bryson-dechambeau",
+      "name": "Bryson DeChambeau",
+      "country": "USA",
+      "odds": "+1050"
+    },
+    {
+      "id": "rory-mcilroy",
+      "name": "Rory McIlroy",
+      "country": "NIR",
+      "odds": "+1175"
+    },
+    {
+      "id": "ludvig-aberg",
+      "name": "Ludvig Åberg",
+      "country": "SWE",
+      "odds": "+1650"
+    },
+    {
+      "id": "xander-schauffele",
+      "name": "Xander Schauffele",
+      "country": "USA",
+      "odds": "+1800"
+    },
+    {
+      "id": "tommy-fleetwood",
+      "name": "Tommy Fleetwood",
+      "country": "ENG",
+      "odds": "+2250"
+    },
+    {
+      "id": "cameron-young",
+      "name": "Cameron Young",
+      "country": "USA",
+      "odds": "+2300"
+    },
+    {
+      "id": "matt-fitzpatrick",
+      "name": "Matt Fitzpatrick",
+      "country": "ENG",
+      "odds": "+2350"
+    },
+    {
+      "id": "hideki-matsuyama",
+      "name": "Hideki Matsuyama",
+      "country": "JPN",
+      "odds": "+2700"
+    },
+    {
+      "id": "collin-morikawa",
+      "name": "Collin Morikawa",
+      "country": "USA",
+      "odds": "+3100"
+    },
+    {
+      "id": "min-woo-lee",
+      "name": "Min Woo Lee",
+      "country": "AUS",
+      "odds": "+3400"
+    },
+    {
+      "id": "justin-rose",
+      "name": "Justin Rose",
+      "country": "ENG",
+      "odds": "+3500"
+    },
+    {
+      "id": "robert-macintyre",
+      "name": "Robert MacIntyre",
+      "country": "SCO",
+      "odds": "+3500"
+    },
+    {
+      "id": "brooks-koepka",
+      "name": "Brooks Koepka",
+      "country": "USA",
+      "odds": "+3700"
+    },
+    {
+      "id": "jordan-spieth",
+      "name": "Jordan Spieth",
+      "country": "USA",
+      "odds": "+4200"
+    },
+    {
+      "id": "patrick-reed",
+      "name": "Patrick Reed",
+      "country": "USA",
+      "odds": "+4300"
+    },
+    {
+      "id": "chris-gotterup",
+      "name": "Chris Gotterup",
+      "country": "USA",
+      "odds": "+4300"
+    },
+    {
+      "id": "viktor-hovland",
+      "name": "Viktor Hovland",
+      "country": "NOR",
+      "odds": "+4500"
+    },
+    {
+      "id": "russell-henley",
+      "name": "Russell Henley",
+      "country": "USA",
+      "odds": "+4700"
+    }
   ],
-  "assignments": [],
-  "scores": {}
+  "assignments": [
+    {
+      "teamId": 1,
+      "golferId": "chris-gotterup"
+    },
+    {
+      "teamId": 2,
+      "golferId": "hideki-matsuyama"
+    },
+    {
+      "teamId": 3,
+      "golferId": "ludvig-aberg"
+    },
+    {
+      "teamId": 4,
+      "golferId": "rory-mcilroy"
+    },
+    {
+      "teamId": 5,
+      "golferId": "xander-schauffele"
+    },
+    {
+      "teamId": 6,
+      "golferId": "tommy-fleetwood"
+    },
+    {
+      "teamId": 7,
+      "golferId": "matt-fitzpatrick"
+    },
+    {
+      "teamId": 8,
+      "golferId": "viktor-hovland"
+    },
+    {
+      "teamId": 9,
+      "golferId": "russell-henley"
+    },
+    {
+      "teamId": 10,
+      "golferId": "bryson-dechambeau"
+    }
+  ],
+  "scores": {},
+  "drawRunAt": "2026-04-08T00:09:39.512Z"
 }

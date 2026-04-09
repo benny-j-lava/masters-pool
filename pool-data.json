@@ -1,7 +1,7 @@
 {
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-09T13:20:26.952Z",
+  "lastUpdated": "2026-04-09T14:22:03.723Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -169,31 +169,46 @@
     }
   ],
   "scores": {
-    "tommy-fleetwood": {
-      "displayName": "Tommy Fleetwood",
-      "totalScore": 0,
+    "patrick-reed": {
+      "displayName": "Patrick Reed",
+      "totalScore": -1,
       "currentRound": 1,
-      "thru": "-",
+      "thru": "1",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        null,
+        "-1",
         null,
         null,
         null
       ]
     },
-    "patrick-reed": {
-      "displayName": "Patrick Reed",
+    "tommy-fleetwood": {
+      "displayName": "Tommy Fleetwood",
       "totalScore": 0,
       "currentRound": 1,
-      "thru": "-",
+      "thru": "1",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
+        "E",
         null,
+        null,
+        null
+      ]
+    },
+    "xander-schauffele": {
+      "displayName": "Xander Schauffele",
+      "totalScore": 0,
+      "currentRound": 1,
+      "thru": "1",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "E",
         null,
         null,
         null
@@ -216,21 +231,6 @@
     },
     "bryson-dechambeau": {
       "displayName": "Bryson DeChambeau",
-      "totalScore": 0,
-      "currentRound": 1,
-      "thru": "-",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        null,
-        null,
-        null,
-        null
-      ]
-    },
-    "xander-schauffele": {
-      "displayName": "Xander Schauffele",
       "totalScore": 0,
       "currentRound": 1,
       "thru": "-",

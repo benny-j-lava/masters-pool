@@ -1,7 +1,7 @@
 {
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-09T21:00:13.268Z",
+  "lastUpdated": "2026-04-09T21:08:10.645Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -413,7 +413,7 @@
       "displayName": "Robert MacIntyre",
       "totalScore": 3,
       "currentRound": 1,
-      "thru": "10",
+      "thru": "11",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -458,7 +458,7 @@
       "displayName": "Min Woo Lee",
       "totalScore": 5,
       "currentRound": 1,
-      "thru": "15",
+      "thru": "16",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

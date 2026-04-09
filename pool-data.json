@@ -1,7 +1,7 @@
 {
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-09T12:52:04.188Z",
+  "lastUpdated": "2026-04-09T13:20:26.952Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -172,13 +172,13 @@
     "tommy-fleetwood": {
       "displayName": "Tommy Fleetwood",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -187,13 +187,13 @@
     "patrick-reed": {
       "displayName": "Patrick Reed",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -202,13 +202,13 @@
     "matt-fitzpatrick": {
       "displayName": "Matt Fitzpatrick",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -217,13 +217,13 @@
     "bryson-dechambeau": {
       "displayName": "Bryson DeChambeau",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -232,13 +232,13 @@
     "xander-schauffele": {
       "displayName": "Xander Schauffele",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -247,13 +247,13 @@
     "russell-henley": {
       "displayName": "Russell Henley",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -262,13 +262,13 @@
     "hideki-matsuyama": {
       "displayName": "Hideki Matsuyama",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -277,13 +277,13 @@
     "collin-morikawa": {
       "displayName": "Collin Morikawa",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -292,13 +292,13 @@
     "rory-mcilroy": {
       "displayName": "Rory McIlroy",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -307,13 +307,13 @@
     "cameron-young": {
       "displayName": "Cameron Young",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -322,13 +322,13 @@
     "viktor-hovland": {
       "displayName": "Viktor Hovland",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -337,13 +337,13 @@
     "min-woo-lee": {
       "displayName": "Min Woo Lee",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -352,13 +352,13 @@
     "jon-rahm": {
       "displayName": "Jon Rahm",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -367,13 +367,13 @@
     "ludvig-aberg": {
       "displayName": "Ludvig Åberg",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -382,13 +382,13 @@
     "chris-gotterup": {
       "displayName": "Chris Gotterup",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -397,13 +397,13 @@
     "justin-rose": {
       "displayName": "Justin Rose",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -412,13 +412,13 @@
     "jordan-spieth": {
       "displayName": "Jordan Spieth",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -427,13 +427,13 @@
     "brooks-koepka": {
       "displayName": "Brooks Koepka",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -442,13 +442,13 @@
     "scottie-scheffler": {
       "displayName": "Scottie Scheffler",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null
@@ -457,13 +457,13 @@
     "robert-macintyre": {
       "displayName": "Robert MacIntyre",
       "totalScore": 0,
-      "currentRound": 2,
+      "currentRound": 1,
       "thru": "-",
-      "madeCut": false,
+      "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "-",
+        null,
         null,
         null,
         null

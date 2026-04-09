@@ -1,7 +1,7 @@
 {
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-09T19:53:02.321Z",
+  "lastUpdated": "2026-04-09T20:00:17.229Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -244,6 +244,21 @@
         null
       ]
     },
+    "jordan-spieth": {
+      "displayName": "Jordan Spieth",
+      "totalScore": -2,
+      "currentRound": 1,
+      "thru": "9",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "-2",
+        null,
+        null,
+        null
+      ]
+    },
     "tommy-fleetwood": {
       "displayName": "Tommy Fleetwood",
       "totalScore": -1,
@@ -279,21 +294,6 @@
       "totalScore": -1,
       "currentRound": 1,
       "thru": "9",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "-1",
-        null,
-        null,
-        null
-      ]
-    },
-    "jordan-spieth": {
-      "displayName": "Jordan Spieth",
-      "totalScore": -1,
-      "currentRound": 1,
-      "thru": "8",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

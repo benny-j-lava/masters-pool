@@ -1,7 +1,7 @@
 {
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-09T20:15:09.499Z",
+  "lastUpdated": "2026-04-09T20:30:11.601Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -218,7 +218,7 @@
       "displayName": "Scottie Scheffler",
       "totalScore": -3,
       "currentRound": 1,
-      "thru": "8",
+      "thru": "9",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -289,26 +289,11 @@
         null
       ]
     },
-    "ludvig-aberg": {
-      "displayName": "Ludvig Åberg",
-      "totalScore": 0,
-      "currentRound": 1,
-      "thru": "10",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "E",
-        null,
-        null,
-        null
-      ]
-    },
     "chris-gotterup": {
       "displayName": "Chris Gotterup",
       "totalScore": 0,
       "currentRound": 1,
-      "thru": "10",
+      "thru": "11",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -349,11 +334,11 @@
         null
       ]
     },
-    "brooks-koepka": {
-      "displayName": "Brooks Koepka",
+    "ludvig-aberg": {
+      "displayName": "Ludvig Åberg",
       "totalScore": 1,
       "currentRound": 1,
-      "thru": "10",
+      "thru": "11",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -364,11 +349,11 @@
         null
       ]
     },
-    "robert-macintyre": {
-      "displayName": "Robert MacIntyre",
+    "brooks-koepka": {
+      "displayName": "Brooks Koepka",
       "totalScore": 1,
       "currentRound": 1,
-      "thru": "8",
+      "thru": "10",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -424,6 +409,21 @@
         null
       ]
     },
+    "robert-macintyre": {
+      "displayName": "Robert MacIntyre",
+      "totalScore": 3,
+      "currentRound": 1,
+      "thru": "9",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+3",
+        null,
+        null,
+        null
+      ]
+    },
     "bryson-dechambeau": {
       "displayName": "Bryson DeChambeau",
       "totalScore": 4,
@@ -443,7 +443,7 @@
       "displayName": "Jon Rahm",
       "totalScore": 4,
       "currentRound": 1,
-      "thru": "10",
+      "thru": "11",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -458,7 +458,7 @@
       "displayName": "Min Woo Lee",
       "totalScore": 5,
       "currentRound": 1,
-      "thru": "13",
+      "thru": "14",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

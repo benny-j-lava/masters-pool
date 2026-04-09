@@ -1,7 +1,7 @@
 {
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-09T20:11:45.802Z",
+  "lastUpdated": "2026-04-09T20:15:09.499Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -203,7 +203,7 @@
       "displayName": "Justin Rose",
       "totalScore": -3,
       "currentRound": 1,
-      "thru": "9",
+      "thru": "10",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -248,7 +248,7 @@
       "displayName": "Jordan Spieth",
       "totalScore": -2,
       "currentRound": 1,
-      "thru": "9",
+      "thru": "10",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -319,21 +319,6 @@
         null
       ]
     },
-    "brooks-koepka": {
-      "displayName": "Brooks Koepka",
-      "totalScore": 0,
-      "currentRound": 1,
-      "thru": "9",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "E",
-        null,
-        null,
-        null
-      ]
-    },
     "russell-henley": {
       "displayName": "Russell Henley",
       "totalScore": 1,
@@ -354,6 +339,21 @@
       "totalScore": 1,
       "currentRound": 1,
       "thru": "F",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+1",
+        null,
+        null,
+        null
+      ]
+    },
+    "brooks-koepka": {
+      "displayName": "Brooks Koepka",
+      "totalScore": 1,
+      "currentRound": 1,
+      "thru": "10",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

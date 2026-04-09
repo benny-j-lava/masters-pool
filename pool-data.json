@@ -1,7 +1,7 @@
 {
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-09T23:00:13.091Z",
+  "lastUpdated": "2026-04-09T23:07:25.301Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -233,7 +233,7 @@
       "displayName": "Scottie Scheffler",
       "totalScore": -2,
       "currentRound": 1,
-      "thru": "16",
+      "thru": "17",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

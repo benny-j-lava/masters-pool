@@ -3,8 +3,8 @@ name: Update Masters Scores
 on:
   schedule:
     # Every 10 min, 7am-10pm ET (11:00-02:00 UTC), Thu Apr 9 - Sun Apr 12
-    - cron: '0,10,20,30,40,50 11-23 9-12 4 *'
-    - cron: '0,10,20,30,40,50 0-2 10-13 4 *'
+    - cron: '0,30 11-23 9-12 4 *'
+    - cron: '0,30 0-2 10-13 4 *'
   workflow_dispatch:
 
 permissions:

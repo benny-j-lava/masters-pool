@@ -72,46 +72,81 @@ async function fetchScores() {
     const scores = {};
     let tournamentStarted = false;
 
+    // Cut detection gate: the cut has only been made if at least one player
+    // in the full field has a period 3 linescore with actual holes played.
+    // ESPN publishes R3 tee time placeholders Friday night, but we only trust
+    // the entry once real holes have been played on Saturday.
+    // Until then, everyone is madeCut = true.
+    const cutHasBeenMade = competitors.some(p =>
+      (p.linescores || []).some(ls => ls.period === 3 && (ls.linescores?.length ?? 0) > 0)
+    );
+    console.log(`Cut has been made: ${cutHasBeenMade}`);
+
+    // Manual missed cut override: golfer IDs listed in pool-data.json under
+    // "manualMissedCut" are always treated as missed cut regardless of ESPN data.
+    const manualMissedCut = new Set(poolData.manualMissedCut || []);
+
     competitors.forEach(player => {
       const playerName = player.athlete?.displayName || player.athlete?.fullName;
       if (!playerName) return;
 
       // Total to-par score as a string: "-15", "E", "+2"
       const totalScore = parseScore(player.score);
-      if (totalScore !== null) tournamentStarted = true;
 
-      // Build per-round data. For each round linescore:
-      //   displayValue = to-par for that round, e.g. "-6" (reliable, even mid-round)
-      //   linescores.length = holes played in that round
+      // Build per-round data. Only count rounds with actual holes played —
+      // ESPN publishes placeholder linescore entries (holes: 0) for future
+      // rounds before they start. These must be ignored for currentRound,
+      // thru, and cut detection.
       const roundData = {};
       (player.linescores || []).forEach(ls => {
         const round = ls.period;
+        const holes = ls.linescores?.length ?? 0;
         if (round < 1 || round > 4) return;
+        if (holes === 0 && !ls.displayValue) return; // skip empty placeholder
         roundData[round] = {
-          toPar: ls.displayValue,          // e.g. "-6", "E", "+2", "-" if not started
-          holesPlayed: ls.linescores?.length ?? 0
+          toPar: ls.displayValue ?? null,
+          holesPlayed: holes
         };
       });
 
-      // roundScores array [R1, R2, R3, R4] — to-par string or null
-      const roundScores = [1, 2, 3, 4].map(r => roundData[r]?.toPar ?? null);
-
-      // Current round and thru (holes played in the active round)
-      const roundsStarted = [1, 2, 3, 4].filter(r => roundData[r]);
-      const currentRound = roundsStarted.length;
-      const activeRound = roundsStarted[roundsStarted.length - 1];
+      // Only rounds with holes played count as real rounds
+      const realRounds = [1, 2, 3, 4].filter(r => roundData[r]?.holesPlayed > 0);
+      const currentRound = realRounds.length || 1;
+      const activeRound = realRounds[realRounds.length - 1];
       const holesPlayed = activeRound ? (roundData[activeRound]?.holesPlayed ?? 0) : 0;
       const thru = holesPlayed === 18 ? 'F' : holesPlayed === 0 ? '-' : String(holesPlayed);
 
-      // Cut detection: if a player has a period 3 linescore they made the cut.
-      // ESPN assigns R3 tee times (and thus a period 3 entry) Friday night after
-      // the cut is made. Anyone without one missed it.
+      // Round scores: use displayValue from real rounds only
+      const roundScores = [1, 2, 3, 4].map(r => {
+        const rd = roundData[r];
+        if (!rd) return null;
+        if (rd.holesPlayed === 0) return null; // placeholder, no score yet
+        return rd.toPar ?? null;
+      });
+
+      // tournamentStarted: true once any player has played at least one hole
+      if (realRounds.length > 0) tournamentStarted = true;
+
+      // Cut detection:
+      // 1. Manual override in pool-data.json always wins
+      // 2. If cut hasn't been made yet (no R3 holes played anywhere), everyone made it
+      // 3. Once cut is made, players with a real R3 entry made it; others didn't
       const statusName = player.status?.type?.name || '';
       const withdrawn = statusName.includes('WD') || statusName.includes('DQ');
-      const hasR3Entry = !!roundData[3];
-      const madeCut = withdrawn ? false : hasR3Entry;
-
       const matchedGolfer = findGolfer(poolData.golfers, playerName);
+      const isManualMissedCut = matchedGolfer ? manualMissedCut.has(matchedGolfer.id) : false;
+      const hasR3Entry = !!roundData[3];
+      let madeCut;
+      if (withdrawn) {
+        madeCut = false;
+      } else if (isManualMissedCut) {
+        madeCut = false;
+      } else if (!cutHasBeenMade) {
+        madeCut = true; // cut not happened yet, everyone is in
+      } else {
+        madeCut = hasR3Entry; // cut made, trust R3 entry
+      }
+
       if (matchedGolfer) {
         scores[matchedGolfer.id] = {
           displayName: playerName,

@@ -1,7 +1,7 @@
 {
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-09T21:45:10.726Z",
+  "lastUpdated": "2026-04-09T22:00:13.016Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -289,6 +289,21 @@
         null
       ]
     },
+    "chris-gotterup": {
+      "displayName": "Chris Gotterup",
+      "totalScore": 0,
+      "currentRound": 1,
+      "thru": "15",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "E",
+        null,
+        null,
+        null
+      ]
+    },
     "russell-henley": {
       "displayName": "Russell Henley",
       "totalScore": 1,
@@ -309,21 +324,6 @@
       "totalScore": 1,
       "currentRound": 1,
       "thru": "F",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+1",
-        null,
-        null,
-        null
-      ]
-    },
-    "chris-gotterup": {
-      "displayName": "Chris Gotterup",
-      "totalScore": 1,
-      "currentRound": 1,
-      "thru": "14",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -383,7 +383,7 @@
       "displayName": "Ludvig Åberg",
       "totalScore": 2,
       "currentRound": 1,
-      "thru": "14",
+      "thru": "16",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -413,7 +413,7 @@
       "displayName": "Robert MacIntyre",
       "totalScore": 3,
       "currentRound": 1,
-      "thru": "13",
+      "thru": "14",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -458,7 +458,7 @@
       "displayName": "Jon Rahm",
       "totalScore": 6,
       "currentRound": 1,
-      "thru": "14",
+      "thru": "16",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-10T22:30:11.246Z",
+  "lastUpdated": "2026-04-10T22:45:08.990Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -177,15 +177,15 @@
   "scores": {
     "rory-mcilroy": {
       "displayName": "Rory McIlroy",
-      "totalScore": -10,
+      "totalScore": -11,
       "currentRound": 2,
-      "thru": "16",
+      "thru": "17",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "-5",
-        "-5",
+        "-6",
         null,
         null
       ]
@@ -239,7 +239,7 @@
       "displayName": "Cameron Young",
       "totalScore": -4,
       "currentRound": 2,
-      "thru": "16",
+      "thru": "17",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -282,15 +282,15 @@
     },
     "hideki-matsuyama": {
       "displayName": "Hideki Matsuyama",
-      "totalScore": -3,
+      "totalScore": -2,
       "currentRound": 2,
-      "thru": "17",
+      "thru": "F",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "E",
-        "-3",
+        "-2",
         null,
         null
       ]
@@ -329,28 +329,13 @@
       "displayName": "Collin Morikawa",
       "totalScore": -1,
       "currentRound": 2,
-      "thru": "17",
+      "thru": "F",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+2",
         "-3",
-        null,
-        null
-      ]
-    },
-    "russell-henley": {
-      "displayName": "Russell Henley",
-      "totalScore": -1,
-      "currentRound": 2,
-      "thru": "17",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+1",
-        "-2",
         null,
         null
       ]
@@ -366,6 +351,21 @@
       "roundScores": [
         "+2",
         "-2",
+        null,
+        null
+      ]
+    },
+    "russell-henley": {
+      "displayName": "Russell Henley",
+      "totalScore": 0,
+      "currentRound": 2,
+      "thru": "F",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+1",
+        "-1",
         null,
         null
       ]
@@ -402,15 +402,15 @@
     },
     "viktor-hovland": {
       "displayName": "Viktor Hovland",
-      "totalScore": 2,
+      "totalScore": 1,
       "currentRound": 2,
-      "thru": "15",
+      "thru": "16",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+3",
-        "-1",
+        "-2",
         null,
         null
       ]

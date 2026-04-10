@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-10T19:30:11.313Z",
+  "lastUpdated": "2026-04-10T19:45:12.996Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -179,7 +179,7 @@
       "displayName": "Rory McIlroy",
       "totalScore": -7,
       "currentRound": 2,
-      "thru": "6",
+      "thru": "7",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -209,7 +209,7 @@
       "displayName": "Patrick Reed",
       "totalScore": -5,
       "currentRound": 2,
-      "thru": "8",
+      "thru": "9",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -254,7 +254,7 @@
       "displayName": "Tommy Fleetwood",
       "totalScore": -3,
       "currentRound": 2,
-      "thru": "8",
+      "thru": "9",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -267,15 +267,30 @@
     },
     "xander-schauffele": {
       "displayName": "Xander Schauffele",
-      "totalScore": -2,
+      "totalScore": -3,
+      "currentRound": 2,
+      "thru": "8",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "-2",
+        "-1",
+        null,
+        null
+      ]
+    },
+    "cameron-young": {
+      "displayName": "Cameron Young",
+      "totalScore": -1,
       "currentRound": 2,
       "thru": "7",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
+        "+1",
         "-2",
-        "E",
         null,
         null
       ]
@@ -314,7 +329,7 @@
       "displayName": "Scottie Scheffler",
       "totalScore": 0,
       "currentRound": 2,
-      "thru": "17",
+      "thru": "F",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -340,21 +355,6 @@
         null
       ]
     },
-    "cameron-young": {
-      "displayName": "Cameron Young",
-      "totalScore": 0,
-      "currentRound": 2,
-      "thru": "6",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+1",
-        "-1",
-        null,
-        null
-      ]
-    },
     "jordan-spieth": {
       "displayName": "Jordan Spieth",
       "totalScore": 1,
@@ -366,6 +366,21 @@
       "roundScores": [
         "E",
         "+1",
+        null,
+        null
+      ]
+    },
+    "matt-fitzpatrick": {
+      "displayName": "Matt Fitzpatrick",
+      "totalScore": 2,
+      "currentRound": 2,
+      "thru": "8",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+2",
+        "E",
         null,
         null
       ]
@@ -389,7 +404,7 @@
       "displayName": "Viktor Hovland",
       "totalScore": 2,
       "currentRound": 2,
-      "thru": "5",
+      "thru": "6",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -400,17 +415,17 @@
         null
       ]
     },
-    "matt-fitzpatrick": {
-      "displayName": "Matt Fitzpatrick",
+    "bryson-dechambeau": {
+      "displayName": "Bryson DeChambeau",
       "totalScore": 3,
       "currentRound": 2,
-      "thru": "7",
+      "thru": "8",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "+2",
-        "+1",
+        "+4",
+        "-1",
         null,
         null
       ]
@@ -430,26 +445,11 @@
         null
       ]
     },
-    "bryson-dechambeau": {
-      "displayName": "Bryson DeChambeau",
-      "totalScore": 4,
-      "currentRound": 2,
-      "thru": "7",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+4",
-        "E",
-        null,
-        null
-      ]
-    },
     "robert-macintyre": {
       "displayName": "Robert MacIntyre",
       "totalScore": 7,
       "currentRound": 2,
-      "thru": "17",
+      "thru": "F",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

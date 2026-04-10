@@ -169,6 +169,18 @@
       .leaderboard-table th.hide-mobile,
       .leaderboard-table td.hide-mobile { display: none; }
     }
+
+    /* Commissioner's toast notification */
+    #toast { position: fixed; bottom: 1.5rem; right: 1.5rem; max-width: 360px; background: #0f2318; border: 1px solid rgba(201,168,76,.45); border-radius: 10px; padding: 1.1rem 1.2rem; box-shadow: 0 4px 24px rgba(0,0,0,.5); z-index: 999; opacity: 0; transform: translateY(12px); transition: opacity .4s ease, transform .4s ease; pointer-events: none; }
+    #toast.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+    .toast-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .55rem; }
+    .toast-title { font-family: 'Playfair Display', serif; font-size: .82rem; color: var(--masters-gold); font-style: italic; line-height: 1.3; }
+    .toast-close { background: none; border: none; color: rgba(249,245,232,.35); font-size: 1.1rem; cursor: pointer; padding: 0 0 0 .75rem; line-height: 1; flex-shrink: 0; }
+    .toast-close:hover { color: var(--cream); }
+    .toast-body { font-size: .78rem; color: rgba(249,245,232,.78); line-height: 1.6; max-height: 220px; overflow-y: auto; }
+    .toast-body p { margin-bottom: .5rem; }
+    .toast-body p:last-child { margin-bottom: 0; }
+    .toast-sig { font-size: .68rem; color: rgba(249,245,232,.38); margin-top: .6rem; font-style: italic; }
   </style>
 </head>
 <body>
@@ -352,6 +364,7 @@ async function init() {
   render();
   startCountdown();
   scheduleRefresh();
+  initToast();
 }
 
 async function loadData() {
@@ -690,6 +703,48 @@ function scheduleRefresh() {
 }
 
 init();
+
+// ─── Commissioner Toast ──────────────────────────────────────────────────────
+
+function initToast() {
+  const cfg = poolData?.announcement;
+  if (!cfg || !cfg.message || !cfg.showFrom || !cfg.showUntil) return;
+  const now = new Date();
+  if (now < new Date(cfg.showFrom) || now > new Date(cfg.showUntil)) return;
+  const key = 'toast_dismissed_' + cfg.showFrom;
+  if (localStorage.getItem(key)) return;
+  document.querySelector('.toast-body').innerHTML = cfg.message;
+  document.querySelector('.toast-title').textContent = cfg.title || '🌸 A Message from Your Commissioner';
+  document.querySelector('.toast-close').onclick = () => dismissToast(key);
+  setTimeout(() => document.getElementById('toast').classList.add('visible'), 800);
+}
+
+function dismissToast(key) {
+  document.getElementById('toast').classList.remove('visible');
+  if (key) localStorage.setItem(key, '1');
+}
+
 </script>
+
+<div id="toast">
+  <div class="toast-header">
+    <div class="toast-title">🌸 Round 1 Recap — A Message from Your Commissioner</div>
+    <button class="toast-close" onclick="dismissToast()">✕</button>
+  </div>
+  <div class="toast-body">
+    <p>Gentlemen, welcome to the 2026 Masters. As your commissioner I am pleased to report that the field is competitive, Augusta is beautiful, and several of you are already embarrassing yourselves.</p>
+    <p>Caleb leads the pool with Rory McIlroy at -5. The defending champion, co-leader of the actual Masters, shooting 67 in his title defense. Caleb drew this man at +1175. I'm sure it had nothing to do with luck.</p>
+    <p>Blake sits second with Xander Schauffele at -2, who managed to hit a tee shot into a spectator's shopping bag on the 8th hole, take a free drop, and make par. A metaphor for Blake's entire fantasy football career — chaotic, somehow works out.</p>
+    <p>Keith's Tommy Fleetwood is at -1 and still searching for his first major. Keith and Tommy have a lot in common in that regard.</p>
+    <p>Kyle and Vijay are tied at even par. Kyle drew Chris Gotterup at +4300. I have nothing sarcastic to add. The man simply got away with something.</p>
+    <p>Kade, Russell Henley is +1. Moving on.</p>
+    <p>Josh and I — yes, I am in this too, and no, I am not biased — are tied at +2. Åberg and Fitzpatrick are both underperforming. I accept this with grace and dignity, unlike what I expect from the rest of you.</p>
+    <p>Matt, Viktor Hovland shot +3 on a day where 66-year-old Fred Couples was making birdies at Amen Corner. I don't know what else to tell you.</p>
+    <p>And Taylor. Bryson DeChambeau triple bogeyed the 11th after spending what felt like a geological era in a bunker, finished +4, and told reporters that "everything is hooking." Third year in this pool. Third year in last place. Taylor, you have achieved something truly rare — consistency.</p>
+    <p>Round 2 begins Friday. The cut looms. Pray for your golfers.</p>
+    <div class="toast-sig">— Ben, Commissioner</div>
+  </div>
+</div>
+
 </body>
 </html>

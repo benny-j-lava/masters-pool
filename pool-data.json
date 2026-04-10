@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-10T14:15:12.471Z",
+  "lastUpdated": "2026-04-10T14:30:14.891Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -280,6 +280,21 @@
         null
       ]
     },
+    "chris-gotterup": {
+      "displayName": "Chris Gotterup",
+      "totalScore": 0,
+      "currentRound": 2,
+      "thru": "2",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "E",
+        "E",
+        null,
+        null
+      ]
+    },
     "hideki-matsuyama": {
       "displayName": "Hideki Matsuyama",
       "totalScore": 0,
@@ -295,17 +310,17 @@
         null
       ]
     },
-    "chris-gotterup": {
-      "displayName": "Chris Gotterup",
+    "ludvig-aberg": {
+      "displayName": "Ludvig Åberg",
       "totalScore": 1,
       "currentRound": 2,
-      "thru": "1",
+      "thru": "2",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "E",
-        "+1",
+        "+2",
+        "-1",
         null,
         null
       ]
@@ -351,21 +366,6 @@
       "roundScores": [
         "+1",
         null,
-        null,
-        null
-      ]
-    },
-    "ludvig-aberg": {
-      "displayName": "Ludvig Åberg",
-      "totalScore": 2,
-      "currentRound": 2,
-      "thru": "1",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+2",
-        "E",
         null,
         null
       ]
@@ -432,15 +432,15 @@
     },
     "jon-rahm": {
       "displayName": "Jon Rahm",
-      "totalScore": 6,
+      "totalScore": 5,
       "currentRound": 2,
-      "thru": "1",
+      "thru": "2",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+6",
-        "E",
+        "-1",
         null,
         null
       ]
@@ -449,7 +449,7 @@
       "displayName": "Min Woo Lee",
       "totalScore": 7,
       "currentRound": 2,
-      "thru": "4",
+      "thru": "5",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

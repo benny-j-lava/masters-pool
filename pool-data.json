@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-10T23:21:10.883Z",
+  "lastUpdated": "2026-04-10T23:30:11.546Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -131,7 +131,9 @@
       "odds": "+4700"
     }
   ],
-  "manualMissedCut": ["bryson-dechambeau"],
+  "manualMissedCut": [
+    "bryson-dechambeau"
+  ],
   "assignments": [
     {
       "teamId": 1,
@@ -435,7 +437,7 @@
       "totalScore": 6,
       "currentRound": 2,
       "thru": "F",
-      "madeCut": true,
+      "madeCut": false,
       "withdrawn": false,
       "status": "active",
       "roundScores": [

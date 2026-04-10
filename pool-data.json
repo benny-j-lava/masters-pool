@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-10T13:00:13.021Z",
+  "lastUpdated": "2026-04-10T13:15:12.293Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -430,8 +430,8 @@
         null
       ]
     },
-    "min-woo-lee": {
-      "displayName": "Min Woo Lee",
+    "jon-rahm": {
+      "displayName": "Jon Rahm",
       "totalScore": 6,
       "currentRound": 1,
       "thru": "F",
@@ -445,17 +445,17 @@
         null
       ]
     },
-    "jon-rahm": {
-      "displayName": "Jon Rahm",
-      "totalScore": 6,
-      "currentRound": 1,
-      "thru": "F",
+    "min-woo-lee": {
+      "displayName": "Min Woo Lee",
+      "totalScore": 7,
+      "currentRound": 2,
+      "thru": "1",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+6",
-        null,
+        "+1",
         null,
         null
       ]

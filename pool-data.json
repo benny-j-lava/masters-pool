@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-10T22:45:08.990Z",
+  "lastUpdated": "2026-04-10T23:00:13.334Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -177,15 +177,15 @@
   "scores": {
     "rory-mcilroy": {
       "displayName": "Rory McIlroy",
-      "totalScore": -11,
+      "totalScore": -12,
       "currentRound": 2,
-      "thru": "17",
+      "thru": "F",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "-5",
-        "-6",
+        "-7",
         null,
         null
       ]
@@ -239,7 +239,7 @@
       "displayName": "Cameron Young",
       "totalScore": -4,
       "currentRound": 2,
-      "thru": "17",
+      "thru": "F",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -402,15 +402,15 @@
     },
     "viktor-hovland": {
       "displayName": "Viktor Hovland",
-      "totalScore": 1,
+      "totalScore": 2,
       "currentRound": 2,
-      "thru": "16",
+      "thru": "17",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+3",
-        "-2",
+        "-1",
         null,
         null
       ]

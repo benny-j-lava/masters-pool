@@ -69,6 +69,7 @@ async function fetchScores() {
     }
 
     const competitors = competition.competitors || [];
+    const tournamentRound = competition.status?.period || 1;
     const scores = {};
     let tournamentStarted = false;
 
@@ -114,7 +115,7 @@ async function fetchScores() {
       const currentRound = realRounds.length || 1;
       const activeRound = realRounds[realRounds.length - 1];
       const holesPlayed = activeRound ? (roundData[activeRound]?.holesPlayed ?? 0) : 0;
-      const thru = holesPlayed === 18 ? 'F' : holesPlayed === 0 ? '-' : String(holesPlayed);
+      const thru = (activeRound && activeRound < tournamentRound) ? '-' : holesPlayed === 18 ? 'F' : holesPlayed === 0 ? '-' : String(holesPlayed);
 
       // Round scores: use displayValue from real rounds only
       const roundScores = [1, 2, 3, 4].map(r => {

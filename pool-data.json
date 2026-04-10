@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-10T15:30:19.369Z",
+  "lastUpdated": "2026-04-10T15:45:10.429Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -209,7 +209,7 @@
       "displayName": "Brooks Koepka",
       "totalScore": -2,
       "currentRound": 2,
-      "thru": "5",
+      "thru": "6",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -239,7 +239,7 @@
       "displayName": "Chris Gotterup",
       "totalScore": -1,
       "currentRound": 2,
-      "thru": "6",
+      "thru": "7",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -269,7 +269,7 @@
       "displayName": "Justin Rose",
       "totalScore": -1,
       "currentRound": 2,
-      "thru": "5",
+      "thru": "6",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -355,21 +355,6 @@
         null
       ]
     },
-    "ludvig-aberg": {
-      "displayName": "Ludvig Åberg",
-      "totalScore": 2,
-      "currentRound": 2,
-      "thru": "6",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+2",
-        "E",
-        null,
-        null
-      ]
-    },
     "matt-fitzpatrick": {
       "displayName": "Matt Fitzpatrick",
       "totalScore": 2,
@@ -400,6 +385,21 @@
         null
       ]
     },
+    "ludvig-aberg": {
+      "displayName": "Ludvig Åberg",
+      "totalScore": 3,
+      "currentRound": 2,
+      "thru": "7",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+2",
+        "+1",
+        null,
+        null
+      ]
+    },
     "viktor-hovland": {
       "displayName": "Viktor Hovland",
       "totalScore": 3,
@@ -419,7 +419,7 @@
       "displayName": "Jon Rahm",
       "totalScore": 4,
       "currentRound": 2,
-      "thru": "6",
+      "thru": "7",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -449,7 +449,7 @@
       "displayName": "Min Woo Lee",
       "totalScore": 6,
       "currentRound": 2,
-      "thru": "9",
+      "thru": "10",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

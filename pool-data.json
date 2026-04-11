@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-11T20:00:12.140Z",
+  "lastUpdated": "2026-04-11T20:15:08.755Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -181,7 +181,7 @@
       "displayName": "Rory McIlroy",
       "totalScore": -12,
       "currentRound": 3,
-      "thru": "5",
+      "thru": "6",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -194,16 +194,16 @@
     },
     "cameron-young": {
       "displayName": "Cameron Young",
-      "totalScore": -8,
+      "totalScore": -9,
       "currentRound": 3,
-      "thru": "9",
+      "thru": "10",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+1",
         "-5",
-        "-4",
+        "-5",
         null
       ]
     },
@@ -211,7 +211,7 @@
       "displayName": "Scottie Scheffler",
       "totalScore": -7,
       "currentRound": 3,
-      "thru": "16",
+      "thru": "17",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -226,7 +226,7 @@
       "displayName": "Patrick Reed",
       "totalScore": -7,
       "currentRound": 3,
-      "thru": "6",
+      "thru": "7",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -256,7 +256,7 @@
       "displayName": "Justin Rose",
       "totalScore": -6,
       "currentRound": 3,
-      "thru": "6",
+      "thru": "7",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -282,48 +282,63 @@
         null
       ]
     },
-    "ludvig-aberg": {
-      "displayName": "Ludvig Åberg",
-      "totalScore": -3,
-      "currentRound": 3,
-      "thru": "15",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+2",
-        "-2",
-        "-3",
-        null
-      ]
-    },
     "collin-morikawa": {
       "displayName": "Collin Morikawa",
-      "totalScore": -3,
+      "totalScore": -4,
       "currentRound": 3,
-      "thru": "15",
+      "thru": "16",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+2",
         "-3",
-        "-2",
+        "-3",
         null
       ]
     },
     "hideki-matsuyama": {
       "displayName": "Hideki Matsuyama",
-      "totalScore": -3,
+      "totalScore": -4,
       "currentRound": 3,
-      "thru": "12",
+      "thru": "13",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "E",
         "-2",
-        "-1",
+        "-2",
+        null
+      ]
+    },
+    "ludvig-aberg": {
+      "displayName": "Ludvig Åberg",
+      "totalScore": -3,
+      "currentRound": 3,
+      "thru": "17",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+2",
+        "-2",
+        "-3",
+        null
+      ]
+    },
+    "matt-fitzpatrick": {
+      "displayName": "Matt Fitzpatrick",
+      "totalScore": -3,
+      "currentRound": 3,
+      "thru": "14",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+2",
+        "-3",
+        "-2",
         null
       ]
     },
@@ -331,7 +346,7 @@
       "displayName": "Chris Gotterup",
       "totalScore": -3,
       "currentRound": 3,
-      "thru": "10",
+      "thru": "11",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -339,21 +354,6 @@
         "E",
         "-3",
         "E",
-        null
-      ]
-    },
-    "matt-fitzpatrick": {
-      "displayName": "Matt Fitzpatrick",
-      "totalScore": -2,
-      "currentRound": 3,
-      "thru": "13",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+2",
-        "-3",
-        "-1",
         null
       ]
     },
@@ -391,7 +391,7 @@
       "displayName": "Brooks Koepka",
       "totalScore": -1,
       "currentRound": 3,
-      "thru": "10",
+      "thru": "11",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

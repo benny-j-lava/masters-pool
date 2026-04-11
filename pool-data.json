@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-11T15:00:12.639Z",
+  "lastUpdated": "2026-04-11T15:15:08.739Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -406,7 +406,7 @@
       "displayName": "Jon Rahm",
       "totalScore": 3,
       "currentRound": 3,
-      "thru": "5",
+      "thru": "6",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -419,16 +419,16 @@
     },
     "viktor-hovland": {
       "displayName": "Viktor Hovland",
-      "totalScore": 3,
+      "totalScore": 4,
       "currentRound": 3,
-      "thru": "2",
+      "thru": "3",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+3",
         "-1",
-        "+1",
+        "+2",
         null
       ]
     },

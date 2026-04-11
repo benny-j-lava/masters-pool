@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-11T16:00:12.644Z",
+  "lastUpdated": "2026-04-11T16:15:08.490Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -342,18 +342,18 @@
         null
       ]
     },
-    "jordan-spieth": {
-      "displayName": "Jordan Spieth",
+    "russell-henley": {
+      "displayName": "Russell Henley",
       "totalScore": 0,
       "currentRound": 3,
-      "thru": "3",
+      "thru": "1",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
-        "E",
         "+1",
         "-1",
+        "E",
         null
       ]
     },
@@ -368,21 +368,6 @@
       "roundScores": [
         "+2",
         "-2",
-        null,
-        null
-      ]
-    },
-    "russell-henley": {
-      "displayName": "Russell Henley",
-      "totalScore": 0,
-      "currentRound": 2,
-      "thru": "-",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+1",
-        "-1",
         null,
         null
       ]
@@ -402,11 +387,41 @@
         null
       ]
     },
+    "jordan-spieth": {
+      "displayName": "Jordan Spieth",
+      "totalScore": 1,
+      "currentRound": 3,
+      "thru": "4",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "E",
+        "+1",
+        "E",
+        null
+      ]
+    },
+    "viktor-hovland": {
+      "displayName": "Viktor Hovland",
+      "totalScore": 2,
+      "currentRound": 3,
+      "thru": "8",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+3",
+        "-1",
+        "E",
+        null
+      ]
+    },
     "jon-rahm": {
       "displayName": "Jon Rahm",
       "totalScore": 3,
       "currentRound": 3,
-      "thru": "9",
+      "thru": "10",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -414,21 +429,6 @@
         "+6",
         "-2",
         "-1",
-        null
-      ]
-    },
-    "viktor-hovland": {
-      "displayName": "Viktor Hovland",
-      "totalScore": 3,
-      "currentRound": 3,
-      "thru": "7",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+3",
-        "-1",
-        "+1",
         null
       ]
     },

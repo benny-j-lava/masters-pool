@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-11T15:45:09.397Z",
+  "lastUpdated": "2026-04-11T16:00:12.644Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -342,6 +342,21 @@
         null
       ]
     },
+    "jordan-spieth": {
+      "displayName": "Jordan Spieth",
+      "totalScore": 0,
+      "currentRound": 3,
+      "thru": "3",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "E",
+        "+1",
+        "-1",
+        null
+      ]
+    },
     "ludvig-aberg": {
       "displayName": "Ludvig Åberg",
       "totalScore": 0,
@@ -387,26 +402,11 @@
         null
       ]
     },
-    "jordan-spieth": {
-      "displayName": "Jordan Spieth",
-      "totalScore": 1,
-      "currentRound": 3,
-      "thru": "1",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "E",
-        "+1",
-        "E",
-        null
-      ]
-    },
     "jon-rahm": {
       "displayName": "Jon Rahm",
       "totalScore": 3,
       "currentRound": 3,
-      "thru": "8",
+      "thru": "9",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -419,16 +419,16 @@
     },
     "viktor-hovland": {
       "displayName": "Viktor Hovland",
-      "totalScore": 4,
+      "totalScore": 3,
       "currentRound": 3,
-      "thru": "6",
+      "thru": "7",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+3",
         "-1",
-        "+2",
+        "+1",
         null
       ]
     },

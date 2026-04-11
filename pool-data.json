@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-11T21:30:09.440Z",
+  "lastUpdated": "2026-04-11T21:45:12.496Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -177,33 +177,33 @@
     }
   ],
   "scores": {
-    "rory-mcilroy": {
-      "displayName": "Rory McIlroy",
+    "cameron-young": {
+      "displayName": "Cameron Young",
       "totalScore": -11,
       "currentRound": 3,
-      "thru": "11",
+      "thru": "16",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+1",
+        "-5",
+        "-7",
+        null
+      ]
+    },
+    "rory-mcilroy": {
+      "displayName": "Rory McIlroy",
+      "totalScore": -10,
+      "currentRound": 3,
+      "thru": "12",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "-5",
         "-7",
-        "+1",
-        null
-      ]
-    },
-    "cameron-young": {
-      "displayName": "Cameron Young",
-      "totalScore": -10,
-      "currentRound": 3,
-      "thru": "15",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+1",
-        "-5",
-        "-6",
+        "+2",
         null
       ]
     },
@@ -297,6 +297,36 @@
         null
       ]
     },
+    "brooks-koepka": {
+      "displayName": "Brooks Koepka",
+      "totalScore": -4,
+      "currentRound": 3,
+      "thru": "F",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "E",
+        "-3",
+        "-1",
+        null
+      ]
+    },
+    "tommy-fleetwood": {
+      "displayName": "Tommy Fleetwood",
+      "totalScore": -4,
+      "currentRound": 3,
+      "thru": "14",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "-1",
+        "-4",
+        "+1",
+        null
+      ]
+    },
     "ludvig-aberg": {
       "displayName": "Ludvig Åberg",
       "totalScore": -3,
@@ -327,11 +357,11 @@
         null
       ]
     },
-    "brooks-koepka": {
-      "displayName": "Brooks Koepka",
+    "chris-gotterup": {
+      "displayName": "Chris Gotterup",
       "totalScore": -3,
       "currentRound": 3,
-      "thru": "16",
+      "thru": "17",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -339,21 +369,6 @@
         "E",
         "-3",
         "E",
-        null
-      ]
-    },
-    "tommy-fleetwood": {
-      "displayName": "Tommy Fleetwood",
-      "totalScore": -3,
-      "currentRound": 3,
-      "thru": "12",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "-1",
-        "-4",
-        "+2",
         null
       ]
     },
@@ -369,21 +384,6 @@
         "E",
         "-2",
         "E",
-        null
-      ]
-    },
-    "chris-gotterup": {
-      "displayName": "Chris Gotterup",
-      "totalScore": -2,
-      "currentRound": 3,
-      "thru": "17",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "E",
-        "-3",
-        "+1",
         null
       ]
     },

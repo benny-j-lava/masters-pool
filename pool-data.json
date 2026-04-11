@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-11T14:00:12.838Z",
+  "lastUpdated": "2026-04-11T14:15:10.269Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -419,16 +419,16 @@
     },
     "jon-rahm": {
       "displayName": "Jon Rahm",
-      "totalScore": 4,
-      "currentRound": 2,
-      "thru": "-",
+      "totalScore": 3,
+      "currentRound": 3,
+      "thru": "1",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+6",
         "-2",
-        null,
+        "-1",
         null
       ]
     },
@@ -478,5 +478,6 @@
       ]
     }
   },
-  "drawRunAt": "2026-04-08T00:09:39.512Z"
+  "drawRunAt": "2026-04-08T00:09:39.512Z",
+  "tournamentRound": 3
 }

@@ -170,6 +170,8 @@
       .leaderboard-table td.hide-mobile { display: none; }
     }
 
+    .tb-marker { font-size: .65rem; color: rgba(249,245,232,.4); vertical-align: super; margin-left: 1px; }
+    .tb-footnote { font-size: .65rem; color: rgba(249,245,232,.35); margin-top: .5rem; padding-left: .25rem; }
     /* Commissioner's toast notification */
     #toast { position: fixed; bottom: 1.5rem; right: 1.5rem; max-width: 360px; background: #0f2318; border: 1px solid rgba(201,168,76,.45); border-radius: 10px; padding: 1.1rem 1.2rem; box-shadow: 0 4px 24px rgba(0,0,0,.5); z-index: 999; opacity: 0; transform: translateY(12px); transition: opacity .4s ease, transform .4s ease; pointer-events: none; }
     #toast.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
@@ -303,6 +305,7 @@
       <li>Missed-cut players are ranked by their 36-hole score</li>
       <li>Tiebreaker: final round score · then R3 · then R2 · then R1</li>
     </ul></div>
+    <div class="tb-footnote" id="tb-footnote" style="display:none">* Position determined by tiebreaker</div>
   </section>
 
   <section id="leaderboard-section">
@@ -331,6 +334,7 @@
       <li>Missed-cut players are ranked by their 36-hole score</li>
       <li>Tiebreaker: final round score · then R3 · then R2 · then R1</li>
     </ul></div>
+    <div class="tb-footnote" id="tb-footnote" style="display:none">* Position determined by tiebreaker</div>
   </section>
 
   <section id="draw-pending-section">
@@ -575,15 +579,42 @@ function roundCell(toPar, inProgress) {
 }
 
 // Golf-style position labels: T4, T4, 6, 7 etc.
-// Ties share the starting position and the count skips ahead.
+// Two players are only truly tied if they have the same total AND the same
+// tiebreaker scores (R4 → R3 → R2 → R1). If the tiebreaker separates them,
+// they get distinct positions even if their totals match.
+function isTied(a, b) {
+  const as = a.score, bs = b.score;
+  const ta = as?.totalScore ?? 999, tb = bs?.totalScore ?? 999;
+  if (ta !== tb) return false;
+  for (let r = 3; r >= 0; r--) {
+    const ra = parseScore(as?.roundScores?.[r]) ?? 999;
+    const rb = parseScore(bs?.roundScores?.[r]) ?? 999;
+    if (ra !== rb) return false;
+  }
+  return true;
+}
+
 function assignPositions(list, offset) {
   let i = 0;
   while (i < list.length) {
     let j = i;
-    while (j < list.length && list[j].sortTotal === list[i].sortTotal) j++;
+    while (j < list.length && isTied(list[j], list[i])) j++;
     const posNum = (offset || 0) + i + 1;
     const label = (j - i) > 1 ? 'T' + posNum : String(posNum);
-    for (let k = i; k < j; k++) list[k].posLabel = label;
+    for (let k = i; k < j; k++) {
+      list[k].posLabel = label;
+      list[k].tiebreaker = false;
+    }
+    // Check if any adjacent players have same total but were separated by tiebreaker
+    if (j < list.length) {
+      const curTotal = list[i].score?.totalScore ?? 999;
+      const nextTotal = list[j].score?.totalScore ?? 999;
+      if (curTotal === nextTotal) {
+        // Same total, different position = tiebreaker was used
+        for (let k = i; k < j; k++) list[k].tiebreaker = true;
+        list[j].tiebreaker = true;
+      }
+    }
     i = j;
   }
 }
@@ -645,6 +676,7 @@ function renderLeaderboard() {
     const posLabel = row.posLabel || '—';
     const posNum = parseInt(posLabel.replace('T', ''));
     const isTop3 = !isMC && posNum <= 3;
+    const tbLabel = row.tiebreaker ? posLabel + '<span class="tb-marker">*</span>' : posLabel;
 
     const total = fmtTotal(score?.totalScore ?? null);
 
@@ -671,7 +703,7 @@ function renderLeaderboard() {
     const tr = document.createElement('tr');
     tr.className = isMC ? 'missed-cut' : '';
     tr.innerHTML =
-      `<td class="pos${isTop3 ? ' top-three' : isMC ? ' mc-pos' : ''}">${posLabel}</td>` +
+      `<td class="pos${isTop3 ? ' top-three' : isMC ? ' mc-pos' : ''}">${tbLabel}</td>` +
       `<td><div class="team-name">${team.teamName}</div><div class="manager-name">${team.manager}</div></td>` +
       `<td><div class="player-name">${golfer.name}</div><div class="player-country">${golfer.country} · ${golfer.odds}</div></td>` +
       `<td class="score ${total.cls}">${total.text}</td>` +
@@ -689,6 +721,13 @@ function renderLeaderboard() {
   if (rl) {
     const round = poolData.tournamentRound || (rows.find(r => r.score?.currentRound)?.score?.currentRound);
     rl.textContent = round ? `Round ${round} · Live` : 'Tournament in progress';
+  }
+
+  // Show footnote if any tiebreakers are in play
+  const fn = document.getElementById('tb-footnote');
+  if (fn) {
+    const hasTiebreaker = [...made, ...missed].some(r => r.tiebreaker);
+    fn.style.display = hasTiebreaker ? 'block' : 'none';
   }
 }
 

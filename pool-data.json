@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-11T22:00:12.534Z",
+  "lastUpdated": "2026-04-11T22:15:11.725Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -181,7 +181,7 @@
       "displayName": "Cameron Young",
       "totalScore": -11,
       "currentRound": 3,
-      "thru": "17",
+      "thru": "F",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -194,16 +194,16 @@
     },
     "rory-mcilroy": {
       "displayName": "Rory McIlroy",
-      "totalScore": -10,
+      "totalScore": -11,
       "currentRound": 3,
-      "thru": "13",
+      "thru": "14",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "-5",
         "-7",
-        "+2",
+        "+1",
         null
       ]
     },
@@ -241,7 +241,7 @@
       "displayName": "Patrick Reed",
       "totalScore": -7,
       "currentRound": 3,
-      "thru": "14",
+      "thru": "15",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -316,7 +316,7 @@
       "displayName": "Tommy Fleetwood",
       "totalScore": -4,
       "currentRound": 3,
-      "thru": "14",
+      "thru": "16",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

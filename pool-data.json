@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-11T16:45:09.716Z",
+  "lastUpdated": "2026-04-11T17:00:11.861Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -286,7 +286,7 @@
       "displayName": "Scottie Scheffler",
       "totalScore": -2,
       "currentRound": 3,
-      "thru": "2",
+      "thru": "3",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -327,11 +327,26 @@
         null
       ]
     },
+    "jordan-spieth": {
+      "displayName": "Jordan Spieth",
+      "totalScore": -1,
+      "currentRound": 3,
+      "thru": "8",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "E",
+        "+1",
+        "-2",
+        null
+      ]
+    },
     "russell-henley": {
       "displayName": "Russell Henley",
       "totalScore": -1,
       "currentRound": 3,
-      "thru": "4",
+      "thru": "5",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -339,6 +354,36 @@
         "+1",
         "-1",
         "-1",
+        null
+      ]
+    },
+    "ludvig-aberg": {
+      "displayName": "Ludvig Åberg",
+      "totalScore": -1,
+      "currentRound": 3,
+      "thru": "3",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+2",
+        "-2",
+        "-1",
+        null
+      ]
+    },
+    "collin-morikawa": {
+      "displayName": "Collin Morikawa",
+      "totalScore": -1,
+      "currentRound": 3,
+      "thru": "1",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+2",
+        "-3",
+        "E",
         null
       ]
     },
@@ -357,56 +402,11 @@
         null
       ]
     },
-    "collin-morikawa": {
-      "displayName": "Collin Morikawa",
-      "totalScore": -1,
-      "currentRound": 2,
-      "thru": "-",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+2",
-        "-3",
-        null,
-        null
-      ]
-    },
-    "jordan-spieth": {
-      "displayName": "Jordan Spieth",
-      "totalScore": 0,
-      "currentRound": 3,
-      "thru": "7",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "E",
-        "+1",
-        "-1",
-        null
-      ]
-    },
-    "ludvig-aberg": {
-      "displayName": "Ludvig Åberg",
-      "totalScore": 0,
-      "currentRound": 3,
-      "thru": "2",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+2",
-        "-2",
-        "E",
-        null
-      ]
-    },
     "viktor-hovland": {
       "displayName": "Viktor Hovland",
       "totalScore": 2,
       "currentRound": 3,
-      "thru": "10",
+      "thru": "11",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -421,7 +421,7 @@
       "displayName": "Jon Rahm",
       "totalScore": 4,
       "currentRound": 3,
-      "thru": "12",
+      "thru": "13",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

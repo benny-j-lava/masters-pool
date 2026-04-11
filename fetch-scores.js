@@ -165,6 +165,7 @@ async function fetchScores() {
     const matchCount = Object.keys(scores).length;
     poolData.scores = scores;
     poolData.tournamentStarted = tournamentStarted;
+    poolData.tournamentRound = tournamentRound;
     poolData.lastUpdated = new Date().toISOString();
 
     fs.writeFileSync(POOL_DATA_FILE, JSON.stringify(poolData, null, 2));

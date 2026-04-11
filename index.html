@@ -687,8 +687,8 @@ function renderLeaderboard() {
   // Update round label in header
   const rl = document.getElementById('round-label');
   if (rl) {
-    const active = rows.find(r => r.score?.currentRound);
-    rl.textContent = active ? `Round ${active.score.currentRound} · Live` : 'Tournament in progress';
+    const round = poolData.tournamentRound || (rows.find(r => r.score?.currentRound)?.score?.currentRound);
+    rl.textContent = round ? `Round ${round} · Live` : 'Tournament in progress';
   }
 }
 

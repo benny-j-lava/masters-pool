@@ -595,27 +595,26 @@ function isTied(a, b) {
 }
 
 function assignPositions(list, offset) {
+  // First pass: assign position labels based on full tiebreaker equality
   let i = 0;
   while (i < list.length) {
     let j = i;
     while (j < list.length && isTied(list[j], list[i])) j++;
     const posNum = (offset || 0) + i + 1;
     const label = (j - i) > 1 ? 'T' + posNum : String(posNum);
-    for (let k = i; k < j; k++) {
-      list[k].posLabel = label;
-      list[k].tiebreaker = false;
-    }
-    // Check if any adjacent players have same total but were separated by tiebreaker
-    if (j < list.length) {
-      const curTotal = list[i].score?.totalScore ?? 999;
-      const nextTotal = list[j].score?.totalScore ?? 999;
-      if (curTotal === nextTotal) {
-        // Same total, different position = tiebreaker was used
-        for (let k = i; k < j; k++) list[k].tiebreaker = true;
-        list[j].tiebreaker = true;
-      }
-    }
+    for (let k = i; k < j; k++) { list[k].posLabel = label; list[k].tiebreaker = false; }
     i = j;
+  }
+  // Second pass: mark tiebreaker if a player shares the same total as a
+  // neighbour but has a different position label (tiebreaker separated them)
+  for (let n = 0; n < list.length; n++) {
+    const curTotal = list[n].score?.totalScore ?? 999;
+    const prevTotal = n > 0 ? (list[n-1].score?.totalScore ?? 999) : null;
+    const nextTotal = n < list.length - 1 ? (list[n+1].score?.totalScore ?? 999) : null;
+    if ((prevTotal === curTotal && list[n].posLabel !== list[n-1].posLabel) ||
+        (nextTotal === curTotal && list[n].posLabel !== list[n+1].posLabel)) {
+      list[n].tiebreaker = true;
+    }
   }
 }
 

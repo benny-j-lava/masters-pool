@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-12T14:02:16.923Z",
+  "lastUpdated": "2026-04-12T14:15:09.119Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -419,9 +419,9 @@
     },
     "jon-rahm": {
       "displayName": "Jon Rahm",
-      "totalScore": 4,
+      "totalScore": 3,
       "currentRound": 4,
-      "thru": "2",
+      "thru": "3",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -429,7 +429,7 @@
         "+6",
         "-2",
         "+1",
-        "-1"
+        "-2"
       ]
     },
     "bryson-dechambeau": {

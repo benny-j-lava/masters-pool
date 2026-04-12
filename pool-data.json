@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-12T21:45:11.536Z",
+  "lastUpdated": "2026-04-12T22:00:12.266Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -181,7 +181,7 @@
       "displayName": "Rory McIlroy",
       "totalScore": -13,
       "currentRound": 4,
-      "thru": "13",
+      "thru": "14",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -192,11 +192,41 @@
         "-2"
       ]
     },
+    "scottie-scheffler": {
+      "displayName": "Scottie Scheffler",
+      "totalScore": -11,
+      "currentRound": 4,
+      "thru": "16",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "-2",
+        "+2",
+        "-7",
+        "-4"
+      ]
+    },
+    "justin-rose": {
+      "displayName": "Justin Rose",
+      "totalScore": -11,
+      "currentRound": 4,
+      "thru": "15",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "-2",
+        "-3",
+        "-3",
+        "-3"
+      ]
+    },
     "russell-henley": {
       "displayName": "Russell Henley",
       "totalScore": -10,
       "currentRound": 4,
-      "thru": "17",
+      "thru": "F",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -207,41 +237,11 @@
         "-4"
       ]
     },
-    "scottie-scheffler": {
-      "displayName": "Scottie Scheffler",
-      "totalScore": -10,
-      "currentRound": 4,
-      "thru": "15",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "-2",
-        "+2",
-        "-7",
-        "-3"
-      ]
-    },
-    "justin-rose": {
-      "displayName": "Justin Rose",
-      "totalScore": -10,
-      "currentRound": 4,
-      "thru": "14",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "-2",
-        "-3",
-        "-3",
-        "-2"
-      ]
-    },
     "cameron-young": {
       "displayName": "Cameron Young",
       "totalScore": -10,
       "currentRound": 4,
-      "thru": "13",
+      "thru": "14",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

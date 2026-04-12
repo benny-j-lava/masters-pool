@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-12T19:30:10.062Z",
+  "lastUpdated": "2026-04-12T19:45:08.481Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -181,7 +181,7 @@
       "displayName": "Cameron Young",
       "totalScore": -12,
       "currentRound": 4,
-      "thru": "4",
+      "thru": "5",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -192,11 +192,41 @@
         "-1"
       ]
     },
+    "russell-henley": {
+      "displayName": "Russell Henley",
+      "totalScore": -10,
+      "currentRound": 4,
+      "thru": "8",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+1",
+        "-1",
+        "-6",
+        "-4"
+      ]
+    },
+    "justin-rose": {
+      "displayName": "Justin Rose",
+      "totalScore": -10,
+      "currentRound": 4,
+      "thru": "7",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "-2",
+        "-3",
+        "-3",
+        "-2"
+      ]
+    },
     "rory-mcilroy": {
       "displayName": "Rory McIlroy",
       "totalScore": -10,
       "currentRound": 4,
-      "thru": "4",
+      "thru": "5",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -205,21 +235,6 @@
         "-7",
         "+1",
         "+1"
-      ]
-    },
-    "russell-henley": {
-      "displayName": "Russell Henley",
-      "totalScore": -9,
-      "currentRound": 4,
-      "thru": "7",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+1",
-        "-1",
-        "-6",
-        "-3"
       ]
     },
     "scottie-scheffler": {
@@ -237,36 +252,6 @@
         "-2"
       ]
     },
-    "justin-rose": {
-      "displayName": "Justin Rose",
-      "totalScore": -9,
-      "currentRound": 4,
-      "thru": "6",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "-2",
-        "-3",
-        "-3",
-        "-1"
-      ]
-    },
-    "hideki-matsuyama": {
-      "displayName": "Hideki Matsuyama",
-      "totalScore": -6,
-      "currentRound": 4,
-      "thru": "17",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "E",
-        "-2",
-        "E",
-        "-4"
-      ]
-    },
     "jordan-spieth": {
       "displayName": "Jordan Spieth",
       "totalScore": -5,
@@ -282,11 +267,41 @@
         "-4"
       ]
     },
+    "hideki-matsuyama": {
+      "displayName": "Hideki Matsuyama",
+      "totalScore": -5,
+      "currentRound": 4,
+      "thru": "F",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "E",
+        "-2",
+        "E",
+        "-3"
+      ]
+    },
+    "matt-fitzpatrick": {
+      "displayName": "Matt Fitzpatrick",
+      "totalScore": -5,
+      "currentRound": 4,
+      "thru": "14",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "+2",
+        "-3",
+        "-2",
+        "-2"
+      ]
+    },
     "xander-schauffele": {
       "displayName": "Xander Schauffele",
       "totalScore": -5,
       "currentRound": 4,
-      "thru": "10",
+      "thru": "12",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -297,26 +312,11 @@
         "-1"
       ]
     },
-    "collin-morikawa": {
-      "displayName": "Collin Morikawa",
-      "totalScore": -5,
-      "currentRound": 4,
-      "thru": "8",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "+2",
-        "-3",
-        "-4",
-        "E"
-      ]
-    },
     "patrick-reed": {
       "displayName": "Patrick Reed",
       "totalScore": -5,
       "currentRound": 4,
-      "thru": "8",
+      "thru": "9",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -346,7 +346,7 @@
       "displayName": "Ludvig Åberg",
       "totalScore": -4,
       "currentRound": 4,
-      "thru": "13",
+      "thru": "14",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -357,26 +357,26 @@
         "-1"
       ]
     },
-    "matt-fitzpatrick": {
-      "displayName": "Matt Fitzpatrick",
+    "collin-morikawa": {
+      "displayName": "Collin Morikawa",
       "totalScore": -4,
       "currentRound": 4,
-      "thru": "13",
+      "thru": "9",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
       "roundScores": [
         "+2",
         "-3",
-        "-2",
-        "-1"
+        "-4",
+        "+1"
       ]
     },
     "chris-gotterup": {
       "displayName": "Chris Gotterup",
       "totalScore": -3,
       "currentRound": 4,
-      "thru": "16",
+      "thru": "17",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -391,7 +391,7 @@
       "displayName": "Brooks Koepka",
       "totalScore": -3,
       "currentRound": 4,
-      "thru": "11",
+      "thru": "12",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -406,7 +406,7 @@
       "displayName": "Tommy Fleetwood",
       "totalScore": -1,
       "currentRound": 4,
-      "thru": "12",
+      "thru": "13",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-12T22:15:10.638Z",
+  "lastUpdated": "2026-04-12T22:30:12.308Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -181,7 +181,7 @@
       "displayName": "Rory McIlroy",
       "totalScore": -13,
       "currentRound": 4,
-      "thru": "15",
+      "thru": "16",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -196,7 +196,7 @@
       "displayName": "Scottie Scheffler",
       "totalScore": -11,
       "currentRound": 4,
-      "thru": "17",
+      "thru": "F",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -205,21 +205,6 @@
         "+2",
         "-7",
         "-4"
-      ]
-    },
-    "justin-rose": {
-      "displayName": "Justin Rose",
-      "totalScore": -11,
-      "currentRound": 4,
-      "thru": "16",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "-2",
-        "-3",
-        "-3",
-        "-3"
       ]
     },
     "russell-henley": {
@@ -237,11 +222,26 @@
         "-4"
       ]
     },
+    "justin-rose": {
+      "displayName": "Justin Rose",
+      "totalScore": -10,
+      "currentRound": 4,
+      "thru": "17",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "-2",
+        "-3",
+        "-3",
+        "-2"
+      ]
+    },
     "cameron-young": {
       "displayName": "Cameron Young",
       "totalScore": -10,
       "currentRound": 4,
-      "thru": "15",
+      "thru": "16",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",

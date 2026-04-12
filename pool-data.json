@@ -7,7 +7,7 @@
   },
   "drawTime": "2026-04-08T20:00:00-04:00",
   "drawCompleted": true,
-  "lastUpdated": "2026-04-12T21:30:10.494Z",
+  "lastUpdated": "2026-04-12T21:45:11.536Z",
   "tournamentStarted": true,
   "golfers": [
     {
@@ -179,9 +179,9 @@
   "scores": {
     "rory-mcilroy": {
       "displayName": "Rory McIlroy",
-      "totalScore": -12,
+      "totalScore": -13,
       "currentRound": 4,
-      "thru": "12",
+      "thru": "13",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -189,14 +189,14 @@
         "-5",
         "-7",
         "+1",
-        "-1"
+        "-2"
       ]
     },
     "russell-henley": {
       "displayName": "Russell Henley",
       "totalScore": -10,
       "currentRound": 4,
-      "thru": "16",
+      "thru": "17",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -207,11 +207,26 @@
         "-4"
       ]
     },
+    "scottie-scheffler": {
+      "displayName": "Scottie Scheffler",
+      "totalScore": -10,
+      "currentRound": 4,
+      "thru": "15",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "-2",
+        "+2",
+        "-7",
+        "-3"
+      ]
+    },
     "justin-rose": {
       "displayName": "Justin Rose",
       "totalScore": -10,
       "currentRound": 4,
-      "thru": "13",
+      "thru": "14",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -226,7 +241,7 @@
       "displayName": "Cameron Young",
       "totalScore": -10,
       "currentRound": 4,
-      "thru": "12",
+      "thru": "13",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -241,7 +256,7 @@
       "displayName": "Collin Morikawa",
       "totalScore": -9,
       "currentRound": 4,
-      "thru": "17",
+      "thru": "F",
       "madeCut": true,
       "withdrawn": false,
       "status": "active",
@@ -250,21 +265,6 @@
         "-3",
         "-4",
         "-4"
-      ]
-    },
-    "scottie-scheffler": {
-      "displayName": "Scottie Scheffler",
-      "totalScore": -9,
-      "currentRound": 4,
-      "thru": "14",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "-2",
-        "+2",
-        "-7",
-        "-2"
       ]
     },
     "xander-schauffele": {
@@ -327,6 +327,21 @@
         "-1"
       ]
     },
+    "patrick-reed": {
+      "displayName": "Patrick Reed",
+      "totalScore": -5,
+      "currentRound": 4,
+      "thru": "F",
+      "madeCut": true,
+      "withdrawn": false,
+      "status": "active",
+      "roundScores": [
+        "-3",
+        "-3",
+        "E",
+        "+1"
+      ]
+    },
     "viktor-hovland": {
       "displayName": "Viktor Hovland",
       "totalScore": -4,
@@ -355,21 +370,6 @@
         "-3",
         "-2",
         "-1"
-      ]
-    },
-    "patrick-reed": {
-      "displayName": "Patrick Reed",
-      "totalScore": -4,
-      "currentRound": 4,
-      "thru": "17",
-      "madeCut": true,
-      "withdrawn": false,
-      "status": "active",
-      "roundScores": [
-        "-3",
-        "-3",
-        "E",
-        "+2"
       ]
     },
     "ludvig-aberg": {
